@@ -64,11 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
         });
 
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
                 navLinks.classList.remove('active');
+                menuBtn.classList.remove('active');
             }
         });
     }
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks) navLinks.classList.remove('active');
+            if (menuBtn) menuBtn.classList.remove('active');
         });
     });
 
