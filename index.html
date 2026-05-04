@@ -24,11 +24,11 @@
                 </button>
 
                 <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#faq">Preguntas</a></li>
-                    <li><a href="#contacto" class="btn-cta">Consulta gratuita</a></li>
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#nosotros"><i class="fas fa-users"></i> Nosotros</a></li>
+                    <li><a href="#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+                    <li><a href="#faq"><i class="fas fa-question-circle"></i> Preguntas</a></li>
+                    <li><a href="#contacto" class="btn-cta"><i class="fas fa-paper-plane"></i> Consulta gratuita</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,52 +45,48 @@
         </div>
     </section>
 
-    <section id="nosotros" class="about">
-        <div class="container">
-            <h2 class="section-title">Nuestra <span>esencia</span></h2>
-            <div class="about-container">
-                <div class="about-images">
-                    <div class="about-image-wrapper">
-                        <img src="img/nosotros.jpg" alt="Familia Cuero Hurtado - ASEFICONT">
-                    </div>
-                    <div class="about-image-wrapper">
-                        <img src="img/equipo.jpg" alt="Equipo ASEFICONT CH SAS">
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h3 class="family-highlight">Una familia de Buenaventura al servicio de su empresa</h3>
-                    <p>
-                        Somos una firma dedicada a la excelencia en <strong>Asesoría Financiera, Contable y Tributaria</strong>. 
-                        Nacimos del compromiso de la familia <strong>Cuero Hurtado</strong> por profesionalizar y fortalecer el tejido empresarial de nuestro puerto.
-                    </p>
-                    <p>
-                        Nuestra historia se construye sobre la integridad y la cercanía. Entendemos los retos de los empresarios locales porque somos parte de esta comunidad. En <strong>ASEFICONT CH</strong>, protegemos el patrimonio y el futuro de quienes confían en nosotros.
-                    </p>
-
-                    <div class="mision-vision-container">
-                        <div class="mv-card">
-                            <div class="mv-header">
-                                <i class="fa-solid fa-bullseye"></i>
-                                <h4>Misión</h4>
-                            </div>
-                            <p>Brindar soluciones contables y financieras integrales que impulsen el crecimiento de los empresarios en Buenaventura, basadas en la ética y la transparencia.</p>
-                        </div>
-                        <div class="mv-card">
-                            <div class="mv-header">
-                                <i class="fa-solid fa-eye"></i>
-                                <h4>Visión</h4>
-                            </div>
-                            <p>Ser la firma líder y referente de confianza en el Pacífico colombiano para el 2030, reconocida por nuestra innovación tecnológica y excelencia profesional.</p>
-                        </div>
-                    </div>
-                </div>
+    <section id="nosotros" class="essence-full">
+        <div class="essence-left">
+            <div class="watermark">
+                <span class="watermark-text">SOBRE</span>
+                <img src="img/logo-aseficont-ch.png" alt="Logo ASEFICONT" class="watermark-logo">
             </div>
+            <h2 class="titulo-esencia"><span class="titulo-esencia-azul">Nuestra</span> <span class="titulo-esencia-blanco">esencia</span></h2>
+            <p>
+                Somos una firma dedicada a la excelencia en <strong>Asesoría Financiera, Contable y Tributaria</strong>. 
+                Nacimos del compromiso de la familia <strong>Cuero Hurtado</strong> por profesionalizar y fortalecer el tejido empresarial de nuestro puerto.
+            </p>
+            <p>
+                Nuestra historia se construye sobre la integridad y la cercanía. Entendemos los retos de los empresarios locales porque somos parte de esta comunidad. En <strong>ASEFICONT CH</strong>, protegemos el patrimonio y el futuro de quienes confían en nosotros.
+            </p>
+
+            <div class="mision">
+                <h4><i class="fa-solid fa-bullseye"></i>Misión</h4>
+                <p>Brindar soluciones contables y financieras integrales que impulsen el crecimiento de los empresarios en Buenaventura, basadas en la ética y la transparencia.</p>
+            </div>
+            <div class="vision">
+                <h4><i class="fa-solid fa-eye"></i>Visión</h4>
+                <p>Ser la firma líder y referente de confianza en el Pacífico colombiano para el 2030, reconocida por nuestra innovación tecnológica y excelencia profesional.</p>
+            </div>
+        </div>
+        <div class="essence-right">
+            <img src="img/equipo.jpg" alt="Imagen 1" class="gallery-img">
+            <img src="img/oficina.jpg" alt="Imagen 2" class="gallery-img">
+            <img src="img/nosotros.jpg" alt="Imagen 3" class="gallery-img">
+            <img src="img/gerente.jpg" alt="Imagen 4" class="gallery-img">
+            <img src="img/gloria.jpg" alt="Imagen 5" class="gallery-img">
+            <img src="img/elias.jpg" alt="Imagen 6" class="gallery-img">
         </div>
     </section>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
     <section id="servicios" class="services">
         <div class="container">
-            <h2 class="section-title">Servicios <span>especializados</span></h2>
+            <h2 class="titulo-seccion">Servicios <span>especializados</span></h2>
             <div class="services-grid">
                 
                 <div class="service-card">
@@ -169,7 +165,7 @@
 
     <section id="testimonios" class="testimonials">
         <div class="container">
-            <h2 class="section-title">Confianza de <span>nuestros clientes</span></h2>
+            <h2 class="titulo-seccion">Confianza de <span>nuestros clientes</span></h2>
             <div class="testimonial-carousel-wrapper">
                 <button class="carousel-btn" id="prevT" aria-label="Anterior">&#10094;</button>
                 <div class="testimonial-window">
@@ -241,7 +237,7 @@
 
     <section id="faq" class="faq-section">
         <div class="container">
-            <h2 class="section-title">Preguntas <span>frecuentes</span></h2>
+            <h2 class="titulo-seccion">Preguntas <span>frecuentes</span></h2>
             <div class="faq-grid">
                 <div class="faq-item">
                     <div class="faq-question">

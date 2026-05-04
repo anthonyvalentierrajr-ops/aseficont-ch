@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Cerrar menú al hacer click en un enlace
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if (navLinks) navLinks.classList.remove('active');
@@ -97,5 +98,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const icon = q.querySelector('.faq-icon');
             if (icon) icon.innerText = item.classList.contains('active') ? '-' : '+';
         });
+    });
+
+    // 5. LIGHTBOX PARA GALERÍA
+    const galleryImgs = document.querySelectorAll('.gallery-img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    galleryImgs.forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
     });
 });
