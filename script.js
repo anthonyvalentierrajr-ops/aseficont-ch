@@ -1,184 +1,195 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. LEER MÁS (SERVICIOS)
-    const readMoreBtns = document.querySelectorAll('.btn-read-more');
-    readMoreBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const extraInfo = btn.previousElementSibling;
-            if (extraInfo) {
-                extraInfo.classList.toggle('active');
-                btn.innerText = extraInfo.classList.contains('active') ? 'Leer menos' : 'Leer más';
+    // =========================================================
+    // 1. MENÚ HAMBURGUESA
+    // =========================================================
+    const menuBtn  = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (navLinks && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuBtn.classList.remove('active');
+        }
+    });
+
+    // =========================================================
+    // 2. DROPDOWN MENÚ (desktop hover / mobile click)
+    // =========================================================
+    document.querySelectorAll('.nav-dropdown').forEach(drop => {
+        const link = drop.querySelector('a');
+        link?.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                drop.classList.toggle('active');
             }
         });
-    });
-
-    // 2. CARRUSEL DE TESTIMONIOS (CALIBRADO)
-    const track = document.getElementById('trackT');
-    const nextBtn = document.getElementById('nextT');
-    const prevBtn = document.getElementById('prevT');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        if (!track) return;
-        const cards = document.querySelectorAll('.testimonial-card');
-        if (cards.length === 0) return;
-        
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 30;
-        
-        track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
-    }
-
-    nextBtn?.addEventListener('click', () => {
-        const total = document.querySelectorAll('.testimonial-card').length;
-        const visible = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-        if (currentIndex < total - visible) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
-        updateCarousel();
-    });
-
-    prevBtn?.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            const total = document.querySelectorAll('.testimonial-card').length;
-            const visible = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-            currentIndex = Math.max(0, total - visible);
-        }
-        updateCarousel();
-    });
-
-    window.addEventListener('resize', () => {
-        currentIndex = 0;
-        updateCarousel();
-    });
-
-    // 3. MENÚ MÓVIL
-    const menuBtn = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            menuBtn.classList.toggle('active');
+        drop.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) drop.classList.add('active');
         });
-
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-                menuBtn.classList.remove('active');
-            }
+        drop.addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) drop.classList.remove('active');
         });
-    }
+    });
 
-    // Ajustar scroll para todos los enlaces de ancla y cerrar el menú móvil si está abierto
-    const smoothScrollToAnchor = (targetId, behavior = 'smooth') => {
-        if (!targetId) return;
-        const targetElement = document.getElementById(targetId);
-        const headerHeight = document.querySelector('.main-header')?.offsetHeight || 0;
-
-        if (targetElement) {
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            window.scrollTo({ top: targetPosition, behavior });
-        }
-    };
-
-    const setActiveNavLink = (targetId) => {
-        document.querySelectorAll('.nav-links a').forEach(navLink => {
-            navLink.classList.toggle('active', navLink.getAttribute('href') === `#${targetId}`);
+    // =========================================================
+    // 3. SCROLL SUAVE Y LINK ACTIVO
+    // =========================================================
+    const setActive = (id) => {
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
         });
     };
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (event) => {
-            const targetId = link.getAttribute('href').slice(1);
-            if (!targetId) return;
-
-            event.preventDefault();
-            smoothScrollToAnchor(targetId);
-            setActiveNavLink(targetId);
-
-            if (history.pushState) {
-                history.pushState(null, '', `#${targetId}`);
-            } else {
-                window.location.hash = targetId;
-            }
-
-            if (link.closest('.nav-links') && navLinks) {
-                navLinks.classList.remove('active');
-                if (menuBtn) menuBtn.classList.remove('active');
-            }
+        link.addEventListener('click', (e) => {
+            const id = link.getAttribute('href').slice(1);
+            if (!id) return;
+            e.preventDefault();
+            const el = document.getElementById(id);
+            const offset = document.querySelector('.main-header')?.offsetHeight || 0;
+            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - offset, behavior: 'smooth' });
+            setActive(id);
+            history.pushState(null, '', `#${id}`);
+            navLinks?.classList.remove('active');
+            menuBtn?.classList.remove('active');
         });
     });
 
     if (window.location.hash) {
-        const initialHash = window.location.hash.slice(1);
-        smoothScrollToAnchor(initialHash, 'auto');
-        setActiveNavLink(initialHash);
+        const id = window.location.hash.slice(1);
+        setTimeout(() => {
+            const el = document.getElementById(id);
+            const offset = document.querySelector('.main-header')?.offsetHeight || 0;
+            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - offset, behavior: 'auto' });
+            setActive(id);
+        }, 100);
     }
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    // =========================================================
+    // 4. HEADER — ACTIVE NAV ON SCROLL
+    // =========================================================
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal-show');
-                observer.unobserve(entry.target);
-            }
+            if (entry.isIntersecting) setActive(entry.target.id);
         });
-    }, {
-        threshold: 0.18,
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    // =========================================================
+    // 5. SERVICIOS — LEER MÁS
+    // =========================================================
+    document.querySelectorAll('.btn-read-more').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const extra = btn.previousElementSibling;
+            if (!extra) return;
+            extra.classList.toggle('active');
+            btn.classList.toggle('open');
+            btn.querySelector('span').textContent = extra.classList.contains('active') ? 'Leer menos' : 'Leer más';
+        });
     });
 
-    document.querySelectorAll('.reveal').forEach(item => {
-        revealObserver.observe(item);
-    });
+    // =========================================================
+    // 6. CARRUSEL DE TESTIMONIOS + DOTS
+    // =========================================================
+    const track   = document.getElementById('trackT');
+    const nextBtn = document.getElementById('nextT');
+    const prevBtn = document.getElementById('prevT');
+    const dotsEl  = document.getElementById('carouselDots');
+    let currentIndex = 0;
 
-    // 4. FAQ (ACORDEÓN)
+    const getVisible = () => window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+
+    const totalCards = () => document.querySelectorAll('.testimonial-card').length;
+
+    const buildDots = () => {
+        if (!dotsEl) return;
+        dotsEl.innerHTML = '';
+        const count = totalCards() - getVisible() + 1;
+        for (let i = 0; i < count; i++) {
+            const d = document.createElement('div');
+            d.className = 'dot' + (i === currentIndex ? ' active' : '');
+            d.addEventListener('click', () => goTo(i));
+            dotsEl.appendChild(d);
+        }
+    };
+
+    const updateDots = () => {
+        dotsEl?.querySelectorAll('.dot').forEach((d, i) => {
+            d.classList.toggle('active', i === currentIndex);
+        });
+    };
+
+    const goTo = (idx) => {
+        if (!track) return;
+        const cards = document.querySelectorAll('.testimonial-card');
+        if (!cards.length) return;
+        const cardW = cards[0].offsetWidth;
+        const gap   = parseFloat(getComputedStyle(track).gap) || 24;
+        currentIndex = Math.max(0, Math.min(idx, totalCards() - getVisible()));
+        track.style.transform = `translateX(-${currentIndex * (cardW + gap)}px)`;
+        updateDots();
+    };
+
+    nextBtn?.addEventListener('click', () => goTo(currentIndex + 1 > totalCards() - getVisible() ? 0 : currentIndex + 1));
+    prevBtn?.addEventListener('click', () => goTo(currentIndex - 1 < 0 ? totalCards() - getVisible() : currentIndex - 1));
+
+    window.addEventListener('resize', () => { currentIndex = 0; goTo(0); buildDots(); });
+
+    buildDots();
+
+    // Auto-play suave
+    let autoplay = setInterval(() => goTo(currentIndex + 1 > totalCards() - getVisible() ? 0 : currentIndex + 1), 5000);
+    [nextBtn, prevBtn].forEach(b => b?.addEventListener('click', () => { clearInterval(autoplay); autoplay = setInterval(() => goTo(currentIndex + 1 > totalCards() - getVisible() ? 0 : currentIndex + 1), 5000); }));
+
+    // =========================================================
+    // 7. FAQ ACORDEÓN
+    // =========================================================
     document.querySelectorAll('.faq-question').forEach(q => {
         q.addEventListener('click', () => {
             const item = q.parentElement;
-            document.querySelectorAll('.faq-item').forEach(i => {
-                if(i !== item) {
-                    i.classList.remove('active');
-                    const otherIcon = i.querySelector('.faq-icon');
-                    if(otherIcon) otherIcon.innerText = '+';
-                }
-            });
-            item.classList.toggle('active');
-            const icon = q.querySelector('.faq-icon');
-            if (icon) icon.innerText = item.classList.contains('active') ? '-' : '+';
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         });
     });
 
-    // 5. LIGHTBOX PARA GALERÍA
-    const galleryImgs = document.querySelectorAll('.gallery-img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-
-    galleryImgs.forEach(img => {
-        img.addEventListener('click', (event) => {
-            event.stopPropagation();
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt || '';
-
-            const title = img.dataset.title || '';
-            const description = img.dataset.description || '';
-
-            if (lightboxCaption) {
-                lightboxCaption.querySelector('h3').textContent = title;
-                lightboxCaption.querySelector('p').textContent = description;
-                lightboxCaption.style.display = title || description ? 'block' : 'none';
+    // =========================================================
+    // 8. ANIMACIONES REVEAL (Intersection Observer)
+    // =========================================================
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-show');
+                obs.unobserve(entry.target);
             }
-
-            lightbox.style.display = 'flex';
         });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // =========================================================
+    // 9. FORMULARIO — Feedback visual
+    // =========================================================
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('.btn-submit');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Enviado con éxito!</span>';
+        btn.style.background = 'linear-gradient(135deg, #2e7d32, #388e3c)';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+            btn.disabled = false;
+            e.target.reset();
+        }, 3500);
     });
 
-    lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
 });

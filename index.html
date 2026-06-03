@@ -2,541 +2,489 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ASEFICONT CH SAS | Asesoría Financiera y Contable en Buenaventura</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASEFICONT CH - Firma Contable, Tributaria y Financiera</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { background: #020617; color: #f8fafc; }
-        .top-contact-bar { background: var(--azul-oscuro); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .top-contact-left .contact-link { color: #ffffff; transition: color 0.25s ease, transform 0.25s ease; }
-        .top-contact-left .contact-link:hover { color: var(--rojo-aseficont); }
-        .top-contact-right .social-link { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.04); }
-        .top-contact-right .social-link i { color: #ffffff; transition: color 0.25s ease; }
-        .top-contact-right .social-link:hover i { color: var(--rojo-aseficont); }
-        .main-header { background: #ffffff; backdrop-filter: blur(14px); box-shadow: 0 24px 80px rgba(0,0,0,0.08); }
-        .main-header .container { width: 100%; display: flex; align-items: center; justify-content: space-between; }
-        .main-header nav { padding: 18px 28px; width: 100%; align-items: center; justify-content: space-between; }
-        .logo img { height: 120px; width: auto; }
-        .nav-links { gap: 30px; }
-        .nav-links a { color: #0a192f; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #0a192f; }
-        .nav-links a.active { font-weight: 800; }
-        .nav-actions .btn-cta { background: linear-gradient(135deg, #d32f2f 0%, #ef4444 100%); padding: 0.95rem 1.8rem; border-radius: 999px; font-size: 0.95rem; box-shadow: 0 24px 60px rgba(211,47,47,0.22); }
-        .hero { min-height: 85vh !important; padding: 260px 0 110px !important; position: relative; overflow: hidden; background: radial-gradient(circle at top left, rgba(14,165,233,0.16), transparent 18%), radial-gradient(circle at bottom right, rgba(248,113,113,0.08), transparent 18%), linear-gradient(180deg, rgba(7,18,38,0.55) 0%, rgba(2,5,15,0.60) 100%), url('img/contaduria.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
-        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(140deg, rgba(14,23,55,0.45), rgba(5,10,20,0.48)); z-index: 1; pointer-events: none; }
-        .hero::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at top right, rgba(59,130,246,0.20), transparent 20%), radial-gradient(circle at bottom left, rgba(239,68,68,0.08), transparent 20%); z-index: 1; pointer-events: none; }
-        .hero .hero-content { position: relative; z-index: 2; }
-        .hero-overline { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.95rem 1.5rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.10); color: #ffffff; font-weight: 700; letter-spacing: 0.28em; font-size: 0.78rem; text-transform: uppercase; }
-        .hero h1 { font-family: var(--fuente-principal); font-size: clamp(3rem, 6vw, 5.3rem); line-height: 0.98; letter-spacing: -0.04em; margin: 0 auto; color: #f8fafc; text-shadow: 0 24px 80px rgba(8,15,42,0.35); max-width: 780px; }
-        .hero p { margin: 1.75rem auto 0; max-width: 720px; color: rgba(248,250,252,0.82); font-size: 1.04rem; line-height: 1.92; }
-        .hero-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-        .btn-primary { background: linear-gradient(135deg, #d32f2f 0%, #ef4444 100%) !important; color: #fff !important; padding: 1rem 2rem !important; border-radius: 999px !important; font-size: 1rem !important; font-weight: 700 !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; box-shadow: 0 26px 90px rgba(220,38,38,0.24) !important; border: 1px solid rgba(255,255,255,0.12) !important; transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease !important; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 32px 110px rgba(220,38,38,0.34) !important; }
-        .btn-secondary { color: #fff !important; padding: 1rem 2rem !important; border-radius: 999px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; background: rgba(255,255,255,0.08) !important; border: 1px solid rgba(255,255,255,0.14) !important; box-shadow: 0 14px 40px rgba(0,0,0,0.18) !important; transition: transform 0.35s ease, background 0.35s ease !important; backdrop-filter: blur(16px); }
-        .btn-secondary:hover { transform: translateY(-2px); background: rgba(255,255,255,0.14) !important; }
-        .essence-full { padding: 60px 0 90px !important; background: linear-gradient(180deg, rgba(8,16,36,0.98) 0%, rgba(5,10,21,0.96) 100%); }
-        .essence-top-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-bottom: 40px; }
-        .mini-card { background: rgba(15,23,42,0.72) !important; border: 1px solid rgba(255,255,255,0.10) !important; border-radius: 24px !important; padding: 22px 22px !important; min-height: 128px !important; box-shadow: 0 32px 90px rgba(0,0,0,0.22) !important; transition: transform 0.35s ease, background 0.35s ease !important; }
-        .mini-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.1) !important; }
-        .mini-card i { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 16px; background: rgba(255,255,255,0.08); color: #fff; font-size: 1.15rem; }
-        .mini-card h4 { margin: 0 0 8px; font-size: 1rem; color: #fff; }
-        .mini-card p { margin: 0; color: rgba(241,245,249,0.82); line-height: 1.9; font-size: 0.94rem; }
-        .essence-left { background: rgba(15,23,42,0.82) !important; border: 1px solid rgba(255,255,255,0.10) !important; box-shadow: 0 32px 70px rgba(0,0,0,0.24) !important; border-radius: 32px !important; padding: 36px 34px 34px !important; }
-        .essence-left .section-label { color: #7dd3fc; font-size: clamp(2rem, 3vw, 2.3rem); margin-bottom: 1rem; display: inline-block; }
-        .history-block p, .detail-text p, .essence-left p { text-align: left !important; color: rgba(241,245,249,0.86) !important; line-height: 1.85 !important; letter-spacing: 0.01em !important; }
-        .mission-vision-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; width: 100%; max-width: 100%; }
-        .detail-row { background: rgba(15,23,42,0.72) !important; border: 1px solid rgba(255,255,255,0.10) !important; border-radius: 28px !important; padding: 28px 26px !important; box-shadow: 0 28px 65px rgba(0,0,0,0.2) !important; min-height: 220px !important; }
-        .detail-text h4 { font-size: 1.65rem !important; color: #fff !important; margin-bottom: 1rem !important; }
-        .detail-text p { color: rgba(241,245,249,0.86) !important; line-height: 1.82 !important; }
-        .hero .hero-content.reveal, .mini-card.reveal, .detail-row.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
-        .hero .hero-content.reveal.reveal-show, .mini-card.reveal.reveal-show, .detail-row.reveal.reveal-show { opacity: 1; transform: translateY(0); }
-        @media (max-width: 1024px) {
-            .essence-top-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .mission-vision-grid { grid-template-columns: 1fr; }
-            .hero { padding: 140px 0 80px !important; }
-            .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1rem; }
-        }
-        @media (max-width: 640px) {
-            .hero { padding: 120px 0 60px !important; }
-            .hero h1 { font-size: 2.6rem; }
-            .hero p { font-size: 0.98rem; max-width: 100%; }
-            .essence-top-cards { grid-template-columns: 1fr; }
-            .detail-row { min-height: auto; }
-            .main-header nav { padding: 0 16px; }
-            .logo img { height: 90px; }
-            .nav-links a { color: #ffffff; }
-            .top-contact-bar .top-bar-inner { justify-content: space-between; }
-        }
-    </style>
 </head>
 <body>
 
+    <!-- ===== HEADER ===== -->
     <header class="main-header">
-        <div class="top-contact-bar">
+        <div class="top-bar">
             <div class="container top-bar-inner">
-                <div class="top-contact-left flex flex-wrap gap-4">
-                    <a href="mailto:informacion@agcontadores.co" class="contact-link"><i class="fas fa-envelope"></i> informacion@agcontadores.co</a>
-                    <a href="tel:+573167400603" class="contact-link"><i class="fas fa-phone-alt"></i> 316 740 0603</a>
-                    <a href="tel:+573245500401" class="contact-link"><i class="fas fa-phone-alt"></i> 324 550 0401</a>
+                <div class="top-contact">
+                    <a href="tel:+573XXXXXXXXX" class="top-link"><i class="fas fa-phone-alt"></i> +57 3XX XXX XXXX</a>
+                    <a href="mailto:contacto@aseficont.com" class="top-link"><i class="fas fa-envelope"></i> contacto@aseficont.com</a>
                 </div>
-                <div class="top-contact-right">
-                    <a href="https://www.facebook.com/aseficontch" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/aseficontch" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="top-social">
+                    <a href="https://facebook.com/aseficontch" target="_blank" rel="noopener" class="top-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/aseficontch" target="_blank" rel="noopener" class="top-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
+
         <div class="container">
-            <nav>
-                <div class="nav-left">
-                    <a href="index.html" class="logo">
-                        <img src="img/logo-aseficont-ch.png" alt="Logo ASEFICONT CH" class="main-logo-img">
-                    </a>
-                </div>
+            <nav class="nav-container">
+                <a href="#inicio" class="logo">
+                    <img src="img/logo-aseficont-ch.png" alt="Logo ASEFICONT CH" class="main-logo-img">
+                </a>
 
-                <div class="nav-center">
-                    <ul class="nav-links">
-                        <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
-                        <li><a href="#nosotros"><i class="fas fa-users"></i> Nosotros</a></li>
-                        <li><a href="#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
-                        <li><a href="#faq"><i class="fas fa-question-circle"></i> Preguntas</a></li>
-                        <li class="mobile-cta"><a href="#contacto" class="btn-cta"><i class="fas fa-calendar-check"></i> Consulta gratuita</a></li>
-                    </ul>
-                </div>
+                <button class="menu-hamburger" id="menu-toggle" aria-label="Abrir menú de navegación">
+                    <span></span><span></span><span></span>
+                </button>
 
-                <div class="nav-right">
-                    <div class="nav-actions desktop-only">
-                        <a href="#contacto" class="btn-cta"><i class="fas fa-calendar-check"></i> Consulta gratuita</a>
-                    </div>
-                    <button id="menu-toggle" class="menu-hamburger" aria-label="Abrir menú">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#nosotros"><i class="fas fa-users"></i> Quiénes Somos <i class="fas fa-chevron-down dd-arrow"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="historia.html"><i class="fas fa-book-open"></i> Nuestra Historia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+                    <li><a href="#faq"><i class="fas fa-question-circle"></i> Preguntas</a></li>
+                    <li><a href="#contacto" class="btn-cta"><i class="fas fa-calendar-check"></i> Consulta Gratuita</a></li>
+                </ul>
             </nav>
         </div>
-        
     </header>
 
-    <section class="hero">
-        <div class="container hero-content reveal mx-auto px-6 text-center">
-            <span class="hero-overline">Bienvenido a ASEFICONT CH</span>
-            <h1 id="inicio">Excelencia, confianza<br>y cumplimiento</h1>
-            <p>En ASEFICONT CH, con el respaldo de la familia Cuero Hurtado, llevamos orden, confianza y crecimiento a las finanzas de tu empresa.</p>
-            <div class="hero-btns flex justify-center flex-wrap gap-4">
-                <a href="#contacto" class="btn-primary">Recibe asesoría ahora</a>
-                <a href="#servicios" class="btn-secondary">Nuestros servicios</a>
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge"><i class="fas fa-shield-alt"></i> Firma certificada · Colombia</div>
+            <h1>Respaldamos el crecimiento<br><span class="hero-accent">financiero</span> de tu empresa</h1>
+            <p>Soluciones integrales en contabilidad, planificación tributaria avanzada y consultoría financiera ejecutiva adaptada a tus metas corporativas.</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn-primary">
+                    <span>Agendar Consultoría</span> <i class="fas fa-calendar-alt"></i>
+                </a>
+                <a href="#servicios" class="btn-outline">
+                    <span>Ver Servicios</span> <i class="fas fa-arrow-down"></i>
+                </a>
             </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section class="essence-full">
-        <div class="essence-top-cards">
-            <div class="mini-card reveal">
-                <i class="fas fa-handshake-simple"></i>
-                <div>
-                    <h4>Asesoría contable</h4>
-                    <p>Orden y control para tus números.</p>
-                </div>
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="container stats-inner">
+            <div class="stat-item">
+                <span class="stat-num">+4</span>
+                <span class="stat-label">Años de experiencia</span>
             </div>
-            <div class="mini-card reveal">
-                <i class="fas fa-file-invoice-dollar"></i>
-                <div>
-                    <h4>Declaraciones</h4>
-                    <p>Presentamos tus obligaciones a tiempo.</p>
-                </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">+500</span>
+                <span class="stat-label">Asesorías realizadas</span>
             </div>
-            <div class="mini-card reveal">
-                <i class="fas fa-chart-line"></i>
-                <div>
-                    <h4>Planeación financiera</h4>
-                    <p>Datos claros para decisiones más seguras.</p>
-                </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">+200</span>
+                <span class="stat-label">Empresas asesoradas</span>
             </div>
-            <div class="mini-card reveal">
-                <i class="fas fa-shield-alt"></i>
-                <div>
-                    <h4>Cumplimiento</h4>
-                    <p>Procesos sólidos y respaldo profesional.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="essence-main-grid">
-            <div class="essence-left" id="nosotros">
-                <span class="section-label">Acerca de nosotros</span>
-
-                <div class="essence-statement">
-                    <span class="quote-mark">“</span>
-                    <p class="essence-heading">Transformamos tu contabilidad en decisiones claras y seguras.</p>
-                </div>
-
-                <p class="essence-description">Entendemos la importancia de una gestión financiera clara y organizada para el crecimiento de cada empresa. Por eso, trabajamos con responsabilidad, compromiso y cercanía, brindando soluciones contables, financieras y tributarias que permitan tomar decisiones más seguras y estratégicas.</p>
-
-                <div class="history-block history-block-inline">
-                    <h3 class="history-title">Nuestra historia</h3>
-                    <p>ASEFICONT CH S.A.S. nació en 2021 como un proyecto familiar enfocado en brindar apoyo a pequeñas y medianas empresas de la ciudad en temas contables, financieros y tributarios.</p>
-                    <p>Desde sus inicios, la empresa comenzó ofreciendo asesorías personalizadas a emprendedores, comerciantes y pequeños negocios que buscaban organizar sus finanzas y cumplir correctamente con sus obligaciones tributarias.</p>
-                    <p>Gracias al compromiso, la responsabilidad y la confianza construida con cada cliente, ASEFICONT CH S.A.S. ha logrado consolidarse como un aliado estratégico para empresas que buscan una gestión financiera más clara, segura y eficiente.</p>
-                    <p>Hoy, continuamos fortaleciendo nuestra experiencia y crecimiento, manteniendo la cercanía, el profesionalismo y el compromiso que nos caracterizan como empresa familiar, contribuyendo al desarrollo y estabilidad de nuestros clientes.</p>
-                </div>
-            </div>
-
-            <div class="essence-right">
-                <div class="photo-card">
-                    <img src="img/no-camera-no-photo-sign-icon-vector.jpg" alt="Equipo ASEFICONT" class="gallery-img" data-title="Equipo ASEFICONT" data-description="Equipo conformado por Gloria Cuero y colaboradores expertos." />
-                    <div class="photo-overlay">Equipo ASEFICONT — Respaldo profesional</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="essence-bottom">
-            <div class="mission-vision-grid">
-                <div class="detail-row reveal">
-                    <div class="detail-text">
-                        <h4><i class="fas fa-bullseye detail-icon"></i> Misión</h4>
-                        <p>Brindar soluciones contables, financieras y tributarias con responsabilidad, compromiso y cercanía, apoyando a empresas y emprendedores en la toma de decisiones seguras, el cumplimiento de sus obligaciones y el crecimiento organizado de sus negocios.</p>
-                        <p>Trabajamos con vocación de servicio para ofrecer acompañamiento oportuno, transparente y adaptado a las necesidades de cada cliente, generando confianza y tranquilidad en cada proceso financiero y contable.</p>
-                    </div>
-                </div>
-                <div class="detail-row reveal">
-                    <div class="detail-text">
-                        <h4><i class="fas fa-eye detail-icon"></i> Visión</h4>
-                        <p>Para el año 2030, consolidarnos como una empresa reconocida por la calidad, confianza y profesionalismo de nuestros servicios contables, financieros y tributarios, ofreciendo soluciones innovadoras y un acompañamiento cercano que contribuya al crecimiento y estabilidad de nuestros clientes.</p>
-                        <p>Buscamos fortalecer continuamente nuestra experiencia y capacidad de adaptación frente a los cambios empresariales y tecnológicos, manteniendo siempre el compromiso, la responsabilidad y la cercanía que nos caracterizan como empresa familiar.</p>
-                        <p>Aspiramos a convertirnos en un aliado estratégico para empresas y emprendedores, apoyándolos en la construcción de negocios más organizados, sostenibles y financieramente sólidos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="essence-metrics">
-                <div class="metric">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span class="metric-number">+4</span>
-                    <span class="metric-text">Años de experiencia</span>
-                </div>
-                <div class="metric">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span class="metric-number">+500</span>
-                    <span class="metric-text">Asesorías realizadas</span>
-                </div>
-                <div class="metric">
-                    <i class="fa-solid fa-building"></i>
-                    <span class="metric-number">+200</span>
-                    <span class="metric-text">Empresas asesoradas</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="">
-            <div id="lightbox-caption" class="lightbox-caption">
-                <h3></h3>
-                <p></p>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Compromiso profesional</span>
             </div>
         </div>
     </div>
 
-    <section class="services">
+    <!-- ===== NUESTRA ESENCIA ===== -->
+    <section id="nosotros" class="essence-section">
+        <div class="container essence-grid">
+            <div class="essence-img-col">
+                <div class="essence-img-wrap">
+                    <img src="img/nuestra-esencia.png" alt="Equipo ASEFICONT CH">
+                    <div class="essence-tag">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <strong>Empresa de Confianza</strong>
+                            <small>Buenaventura, Colombia</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="essence-text-col">
+                <div class="section-label"><i class="fas fa-star"></i> Nuestra Esencia</div>
+                <h2>Aliados estratégicos en cada etapa de tu negocio</h2>
+                <p>En <strong>ASEFICONT CH</strong> transformamos los datos financieros en herramientas estratégicas de valor. No somos solo gestores; somos aliados de confianza que velan por la seguridad contable y tributaria de tu patrimonio empresarial.</p>
+                <p>Nacimos en 2021 como un proyecto familiar, y hoy somos un referente en asesoría contable, tributaria y financiera para empresas de todos los tamaños en la región.</p>
+                <div class="essence-values">
+                    <div class="value-chip"><i class="fas fa-check-circle"></i> Transparencia total</div>
+                    <div class="value-chip"><i class="fas fa-check-circle"></i> Cumplimiento normativo</div>
+                    <div class="value-chip"><i class="fas fa-check-circle"></i> Atención personalizada</div>
+                    <div class="value-chip"><i class="fas fa-check-circle"></i> Confidencialidad</div>
+                </div>
+                <a href="historia.html" class="btn-primary" style="width:fit-content; margin-top:10px;">
+                    <span>Conocer Nuestra Historia</span> <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section id="servicios" class="services-section">
         <div class="container">
-            <h2 id="servicios" class="titulo-seccion">Servicios <span>especializados</span></h2>
+            <div class="section-header">
+                <div class="section-label light"><i class="fas fa-briefcase"></i> Lo que hacemos</div>
+                <h2 class="titulo-seccion">Servicios Especializados</h2>
+                <p class="section-desc">Soluciones contables, tributarias y financieras diseñadas para proteger y potenciar tu empresa.</p>
+            </div>
             <div class="services-grid">
-                
-                <div class="service-card">
-                    <i class="fa-solid fa-users-gear service-icon"></i>
-                    <h3>Administración</h3>
-                    <p>Optimización de procesos internos y fortalecimiento de la gestión empresarial.</p>
-                    <div class="extra-info">
-                        <ul>
-                            <li>Planeación estratégica a corto y mediano plazo.</li>
-                            <li>Organización de estructuras jerárquicas.</li>
-                            <li>Dirección y fortalecimiento de equipos de trabajo.</li>
-                            <li>Evaluación y control del rendimiento empresarial.</li>
-                            <li>Acompañamiento en procesos administrativos y organizacionales.</li> 
-                        </ul>
-                    </div>
-                    <button class="btn-read-more">Leer más</button>
-                </div>
 
                 <div class="service-card">
-                    <i class="fa-solid fa-chart-line service-icon"></i>
-                    <h3>Financiero</h3>
-                    <p>Soluciones financieras enfocadas en la estabilidad y crecimiento de tu empresa.</p>
-                    <div class="extra-info">
-                        <ul>
-                            <li>Elaboración de presupuestos empresariales.</li>
-                            <li>Análisis de viabilidad financiera.</li>
-                            <li>Gestión de capital de trabajo.</li>
-                            <li>Planeación financiera estratégica.</li>
-                            <li>Gestión de liquidez y tesorería.</li>
-                            <li>Asesoría en decisiones de inversión y financiamiento.</li> 
-                        </ul>
+                    <div class="service-icon-wrap">
+                        <div class="service-icon"><i class="fas fa-calculator"></i></div>
                     </div>
-                    <button class="btn-read-more">Leer más</button>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-file-invoice-dollar service-icon"></i>
-                    <h3>Asesoría Tributaria</h3>
-                    <p>Acompañamiento tributario para el cumplimiento seguro de tus obligaciones fiscales.</p>
-                    <div class="extra-info">
-                        <ul>
-                            <li>Diagnóstico tributario empresarial.</li>
-                            <li>Asesoría en procesos relacionados con la DIAN.</li>
-                            <li>Declaraciones tributarias.</li>
-                            <li>Orientación en responsabilidades fiscales.</li>
-                            <li>Cumplimiento de obligaciones tributarias.</li> 
-                        </ul>
-                    </div>
-                    <button class="btn-read-more">Leer más</button>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-calculator service-icon"></i>
                     <h3>Gestión Contable</h3>
-                    <p>Organización y control contable para una gestión financiera más eficiente.</p>
+                    <p>Estructuración contable completa, balances fidedignos y reportes financieros oportunos bajo normativas internacionales.</p>
                     <div class="extra-info">
-                        <ul>
-                            <li>Acompañamiento contable mensual.</li>
-                            <li>Recomendación de software contable.</li>
-                            <li>Organización y actualización de la contabilidad.</li>
-                            <li>Elaboración de estados financieros.</li>
-                            <li>Control y seguimiento de obligaciones contables.</li> 
-                        </ul>
+                        <p>Incluye conciliación bancaria automatizada, procesamiento de libros oficiales, control de activos fijos e informes gerenciales listos para auditorías externas.</p>
                     </div>
-                    <button class="btn-read-more">Leer más</button>
+                    <button class="btn-read-more"><span>Leer más</span> <i class="fas fa-chevron-down"></i></button>
                 </div>
 
                 <div class="service-card">
-                    <i class="fa-solid fa-chart-pie service-icon"></i>
-                    <h3>Asesoría Financiera</h3>
-                    <p>Estrategias financieras para optimizar recursos y fortalecer la estabilidad empresarial.</p>
-                    <div class="extra-info">
-                        <ul>
-                            <li>Control y optimización de recursos económicos.</li>
-                            <li>Evaluación de viabilidad financiera.</li>
-                            <li>Planeación para el crecimiento empresarial.</li>
-                            <li>Gestión de liquidez y sostenibilidad financiera.</li>
-                            <li>Acompañamiento en la toma de decisiones estratégicas.</li> 
-                        </ul>
+                    <div class="service-icon-wrap">
+                        <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
                     </div>
-                    <button class="btn-read-more">Leer más</button>
+                    <h3>Planificación Tributaria</h3>
+                    <p>Optimización legal de tus cargas impositivas, declaraciones mensuales, anuales y mitigación de contingencias fiscales.</p>
+                    <div class="extra-info">
+                        <p>Elaboramos mapas fiscales estratégicos, declaraciones de renta complejas y atención oportuna a requerimientos de entes de control.</p>
+                    </div>
+                    <button class="btn-read-more"><span>Leer más</span> <i class="fas fa-chevron-down"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    </div>
+                    <h3>Consultoría Financiera</h3>
+                    <p>Análisis profundo de flujos de caja, proyecciones económicas y valuación de proyectos para toma de decisiones.</p>
+                    <div class="extra-info">
+                        <p>Diseñamos tableros de KPIs, reestructuración de pasivos comerciales y optimizaciones operativas para maximizar el EBITDA.</p>
+                    </div>
+                    <button class="btn-read-more"><span>Leer más</span> <i class="fas fa-chevron-down"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    </div>
+                    <h3>Auditoría Integral</h3>
+                    <p>Evaluación de controles internos y revisión objetiva de estados financieros para asegurar plena transparencia.</p>
+                    <div class="extra-info">
+                        <p>Evaluamos procesos financieros e informáticos, mitigamos fraudes operativos y entregamos un dictamen formal válido ante entidades bancarias.</p>
+                    </div>
+                    <button class="btn-read-more"><span>Leer más</span> <i class="fas fa-chevron-down"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon"><i class="fas fa-gavel"></i></div>
+                    </div>
+                    <h3>Asesoría Jurídica</h3>
+                    <p>Respaldo legal corporativo en constitución de sociedades, actas de asambleas y cumplimiento del derecho comercial.</p>
+                    <div class="extra-info">
+                        <p>Elaboración y revisión de contratos comerciales, fusiones, adquisiciones y blindaje patrimonial para socios y directivos.</p>
+                    </div>
+                    <button class="btn-read-more"><span>Leer más</span> <i class="fas fa-chevron-down"></i></button>
+                </div>
+
+                <div class="service-card service-card--cta">
+                    <i class="fas fa-headset cta-icon"></i>
+                    <h3>¿Necesitas orientación?</h3>
+                    <p>Agenda una primera consultoría sin costo y cuéntanos sobre las necesidades de tu empresa.</p>
+                    <a href="#contacto" class="btn-primary btn-sm">
+                        <span>Consulta gratuita</span> <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section id="testimonios" class="testimonials">
+    <!-- ===== POR QUÉ ELEGIRNOS ===== -->
+    <section class="why-section">
+        <div class="container why-grid">
+            <div class="why-text">
+                <div class="section-label"><i class="fas fa-thumbs-up"></i> ¿Por qué elegirnos?</div>
+                <h2>Una firma que trabaja como parte de tu equipo</h2>
+                <p>No solo entregamos informes. Nos comprometemos con el crecimiento real de tu empresa, acompañándote en cada decisión financiera con criterio profesional y cercanía humana.</p>
+                <div class="why-list">
+                    <div class="why-item">
+                        <div class="why-num">01</div>
+                        <div>
+                            <strong>Respuesta oportuna</strong>
+                            <p>Atendemos consultas en menos de 24 horas hábiles, siempre.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-num">02</div>
+                        <div>
+                            <strong>Equipo multidisciplinario</strong>
+                            <p>Contadores, tributaristas y asesores jurídicos en una sola firma.</p>
+                        </div>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-num">03</div>
+                        <div>
+                            <strong>Cero sorpresas fiscales</strong>
+                            <p>Planificamos con anticipación para que siempre estés en regla.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="why-img">
+                <img src="img/contaduria.png" alt="Equipo de trabajo ASEFICONT CH">
+                <div class="why-badge">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <strong>Clientes satisfechos</strong>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonials-section">
         <div class="container">
-            <h2 class="titulo-seccion">Confianza de <span>nuestros clientes</span></h2>
+            <div class="section-header">
+                <div class="section-label"><i class="fas fa-quote-left"></i> Testimonios</div>
+                <h2 class="titulo-seccion">Lo que dicen nuestros clientes</h2>
+            </div>
+
             <div class="testimonial-carousel-wrapper">
-                <button class="carousel-btn" id="prevT" aria-label="Anterior">&#10094;</button>
+                <button id="prevT" class="btn-carousel-nav" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
                 <div class="testimonial-window">
                     <div class="testimonial-track" id="trackT">
+
                         <div class="testimonial-card">
-                            <div class="quote-icon">“</div>
-                            <p>Destaco la responsabilidad y el compromiso en cada asesoría. Su acompañamiento ha sido clave para mantener nuestras obligaciones al día.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Pastor Hernández</strong>
-                                <br>
-                                <span>Gerente Logístico</span>
+                            <div class="stars-row">★★★★★</div>
+                            <p>"La precisión y el compromiso de la firma nos han permitido operar con absoluta tranquilidad ante los organismos fiscales."</p>
+                            <div class="client-info">
+                                <div class="client-avatar">G</div>
+                                <div>
+                                    <span class="client-name">Gerencia General</span>
+                                    <small>Sector Retail</small>
+                                </div>
                             </div>
                         </div>
+
                         <div class="testimonial-card">
-                            <div class="quote-icon">“</div>
-                            <p>Profesionalismo y calidez humana. Se nota que son una familia comprometida con el desarrollo de Buenaventura. Muy recomendados.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Marta Lucía Rivas</strong>
-                                <br>
-                                <span>Comerciante</span>
+                            <div class="stars-row">★★★★★</div>
+                            <p>"Un equipo sumamente profesional. Redujeron nuestros riesgos financieros gracias a una planificación fiscal impecable."</p>
+                            <div class="client-info">
+                                <div class="client-avatar">D</div>
+                                <div>
+                                    <span class="client-name">Dirección de Finanzas</span>
+                                    <small>Consorcio Logístico</small>
+                                </div>
                             </div>
                         </div>
+
                         <div class="testimonial-card">
-                            <div class="quote-icon">“</div>
-                            <p>Gracias a su asesoría financiera logramos optimizar nuestros costos operativos. Son expertos que conocen el entorno local.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Juan Camilo Mina</strong>
-                                <br>
-                                <span>Gerente de Operaciones</span>
+                            <div class="stars-row">★★★★★</div>
+                            <p>"Excelente atención, las respuestas siempre son rápidas, transparentes y sustentadas legalmente. Totalmente recomendados."</p>
+                            <div class="client-info">
+                                <div class="client-avatar">I</div>
+                                <div>
+                                    <span class="client-name">Inversionista Privado</span>
+                                    <small>Desarrollo Inmobiliario</small>
+                                </div>
                             </div>
                         </div>
+
                         <div class="testimonial-card">
-                            <div class="quote-icon">“</div>
-                            <p>Su puntualidad en los reportes mensuales nos ha permitido tomar decisiones en tiempo real. Un servicio de primer nivel.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Ricardo Estupiñán</strong>
-                                <br>
-                                <span>Exportador</span>
-                            </div>
-                        </div>                        <div class="testimonial-card">
-                            <div class="quote-icon">"</div>
-                            <p>Excelentes profesionales. Han restructurado completamente nuestro sistema contable y nos ahorran tiempo valioso cada mes.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Sandra Gómez</strong>
-                                <br>
-                                <span>Directora Administrativa</span>
+                            <div class="stars-row">★★★★★</div>
+                            <p>"Gracias a su auditoría identificamos fugas de capital y logramos optimizar un 15% nuestros costos administrativos."</p>
+                            <div class="client-info">
+                                <div class="client-avatar">O</div>
+                                <div>
+                                    <span class="client-name">Dirección de Operaciones</span>
+                                    <small>Empresa de Manufactura</small>
+                                </div>
                             </div>
                         </div>
+
                         <div class="testimonial-card">
-                            <div class="quote-icon">"</div>
-                            <p>La claridad en sus explicaciones y su disponibilidad permanente los diferencia. Son más que asesores, son socios del negocio.</p>
-                            <br>
-                            <div class="testimonial-author">
-                                <strong>Felipe Rodríguez</strong>
-                                <br>
-                                <span>Empresario Importador</span>
+                            <div class="stars-row">★★★★★</div>
+                            <p>"Delegar nuestra contabilidad en su firma ha sido la mejor decisión estratégica del año. Su reporte gerencial es impecable."</p>
+                            <div class="client-info">
+                                <div class="client-avatar">P</div>
+                                <div>
+                                    <span class="client-name">Presidencia Ejecutiva</span>
+                                    <small>Tecnología Aplicada</small>
+                                </div>
                             </div>
-                        </div>                    </div>
+                        </div>
+
+                    </div>
                 </div>
-                <button class="carousel-btn" id="nextT" aria-label="Siguiente">&#10095;</button>
+
+                <button id="nextT" class="btn-carousel-nav" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="faq-section">
+        <div class="container faq-layout">
+            <div class="faq-header">
+                <div class="section-label"><i class="fas fa-question-circle"></i> FAQ</div>
+                <h2>Preguntas Frecuentes</h2>
+                <p>¿Tienes dudas? Aquí respondemos las más comunes. Si no encuentras lo que buscas, escríbenos.</p>
+                <a href="#contacto" class="btn-primary btn-sm" style="margin-top:20px; width:fit-content;">
+                    <span>Hacer una pregunta</span> <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="faq-container">
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué documentos necesito para externalizar mi contabilidad?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Únicamente requerimos los estados financieros del último período, accesos de control fiscal y registros base de compras y ventas. Nos encargamos de toda la transición técnica.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Con qué frecuencia entregan informes sobre el estado de mi empresa?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Entregamos balances mensuales detallados durante los primeros 5 días hábiles de cada mes, acompañados de una sesión de revisión ejecutiva remota o presencial.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Su firma cubre auditorías ante requerimientos fiscales oficiales?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, brindamos representación y defensa legal-tributaria ante cualquier fiscalización oficial, resguardando la consistencia contable de tu negocio.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Trabajan con empresas de todos los tamaños?</h3>
+                        <span class="faq-icon"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí. Atendemos desde emprendedores y pequeños negocios hasta medianas y grandes empresas. Adaptamos nuestros planes a las necesidades y presupuesto de cada cliente.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section class="faq-section">
+    <!-- ===== CONTACTO / FOOTER ===== -->
+    <footer id="contacto" class="footer">
         <div class="container">
-            <h2 id="faq" class="titulo-seccion">Preguntas <span>frecuentes</span></h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Realizan certificados de ingresos?</h3>
-                        <span class="faq-icon">+</span>
+            <div class="footer-top">
+                <div class="footer-form-col">
+                    <div class="form-header">
+                        <div class="section-label light"><i class="fas fa-envelope"></i> Contáctanos</div>
+                        <h3>Solicita una evaluación sin costo</h3>
+                        <p>Un especialista analizará la situación contable actual de tu empresa y te orientará sin compromiso.</p>
                     </div>
-                    <div class="faq-answer">
-                        <p>Sí. Elaboramos certificados de ingresos y otros documentos contables de acuerdo con tus necesidades.</p>
-                    </div>
+
+                    <form class="footer-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" placeholder="Correo electrónico" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" placeholder="Teléfono / WhatsApp" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-building input-icon"></i>
+                                <input type="text" placeholder="Nombre de tu empresa">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-comment-alt input-icon textarea-icon"></i>
+                            <textarea placeholder="Cuéntanos brevemente sobre las necesidades de tu empresa..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <span>Enviar Solicitud</span> <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div class="legal-notice">
+                            <i class="fas fa-lock"></i>
+                            <span>Tus datos están protegidos bajo acuerdo de confidencialidad profesional.</span>
+                        </div>
+                    </form>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Realizan declaraciones de Industria y Comercio (ICA)?</h3>
-                        <span class="faq-icon">+</span>
+
+                <div class="footer-info-col">
+                    <img src="img/logo-aseficont-ch.png" alt="ASEFICONT CH" class="footer-logo">
+                    <p class="footer-desc">Firma contable, tributaria y financiera con sede en Buenaventura, Colombia. Más de 4 años respaldando el crecimiento de empresas y emprendedores.</p>
+
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cra. 64 #4-05, Barrio Panamericano,<br>Buenaventura, Valle del Cauca</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+573XXXXXXXXX">+57 3XX XXX XXXX</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contacto@aseficont.com">contacto@aseficont.com</a>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Sí. Nos encargamos de la elaboración y presentación de declaraciones de Industria y Comercio (ICA) de manera oportuna y segura.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Elaboran y presentan información exógena?</h3>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí. Gestionamos la elaboración y presentación de información exógena cumpliendo con los requerimientos legales vigentes.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Realizan declaraciones de IVA?</h3>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí. Elaboramos y presentamos declaraciones de IVA para personas naturales y empresas.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Elaboran estados financieros?</h3>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí. Elaboramos estados financieros claros y organizados para apoyar una mejor toma de decisiones.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Ofrecen servicio de contabilidad mensual?</h3>
-                        <span class="faq-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Sí. Brindamos acompañamiento contable mensual adaptado a las necesidades de cada empresa o emprendimiento.</p>
+
+                    <div class="footer-social">
+                        <a href="https://facebook.com/aseficontch" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/aseficontch" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573XXXXXXXXX" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-   <!-- ... (Todo lo anterior se mantiene igual hasta llegar al Footer) ... -->
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-branding">
-                <img src="img/logo-aseficont-ch-horizontal.png" alt="Logo ASEFICONT CH" class="footer-logo-horizontal">
-                <div class="footer-logo-divider"></div>
-            </div>
-
-            <div class="footer-form-wrapper">
-                <div class="form-header">
-                    <h4 id="contacto">Solicita una asesoría gratuita</h4>
-                    <p>Déjanos tus datos y hablemos de tu crecimiento financiero.</p>
-                </div>
-                
-                <form id="my-form" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" class="footer-form">
-                    <div class="form-row">
-                        <div class="input-group">
-                            <i class="fa-solid fa-user input-icon"></i>
-                            <input type="text" name="nombre" placeholder="Nombre completo" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-phone input-icon"></i>
-                            <input type="tel" name="telefono" placeholder="Número de contacto" required>
-                        </div>
-                        <div class="input-group">
-                            <i class="fa-solid fa-envelope input-icon"></i>
-                            <input type="email" name="email" placeholder="Correo electrónico" required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <i class="fa-solid fa-message input-icon"></i>
-                        <textarea name="mensaje" placeholder="¿Cuéntanos cómo podemos ayudarte?" rows="4"></textarea>
-                    </div>
-                    <button type="submit" id="my-form-button" class="btn-submit">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        Enviar solicitud ahora
-                    </button>
-                    <p class="legal-notice">
-                        <i class="fa-solid fa-shield-alt"></i>
-                        * La información suministrada será tratada conforme a la Ley 1581 de 2012 de Protección de Datos Personales.
-                    </p>
-                </form>
-            </div>
-
-            <div class="footer-contact-info">
-                <div class="contact-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Cra. 64 #4-05, Barrio Panamericano, Buenaventura, Valle del Cauca</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+57 3XX XXX XXXX</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:contacto@aseficontch.com">contacto@aseficontch.com</a>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
-            <p>&copy; 2026 ASEFICONT CH S.A.S | Todos los derechos reservados.</p>
+            <div class="container">
+                <p>© 2026 ASEFICONT CH S.A.S. · Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/573XXXXXXXXX?text=Hola%20familia%20Cuero%20Hurtado,%20necesito%20una%20asesoría%20contable." 
-       class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat de WhatsApp">
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/573XXXXXXXXX?text=Hola%20ASEFICONT%20CH,%20me%20gustaría%20una%20asesoría." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contacto por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <script src="script.js"></script>
