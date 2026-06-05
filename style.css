@@ -577,6 +577,7 @@ a  { color: inherit; text-decoration: none; }
     transition: var(--transicion);
     display: flex;
     flex-direction: column;
+    gap: 14px;
 }
 .service-card:hover {
     transform: translateY(-8px);
@@ -584,7 +585,7 @@ a  { color: inherit; text-decoration: none; }
     border-top-color: var(--rojo);
 }
 .service-icon-wrap {
-    margin-bottom: 22px;
+    margin-bottom: 6px;
 }
 .service-icon {
     width: 62px; height: 62px;
@@ -605,45 +606,20 @@ a  { color: inherit; text-decoration: none; }
     font-size: 1.08rem;
     font-weight: 700;
     color: var(--azul-oscuro);
-    margin-bottom: 12px;
+    margin: 0;
 }
 .service-card p {
     color: var(--texto-suave);
     font-size: 0.92rem;
     line-height: 1.65;
+    flex: 1;
 }
-.extra-info {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-}
-.extra-info.active { max-height: 200px; }
-.extra-info p {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.87rem;
-    color: var(--texto-suave);
-    line-height: 1.6;
-}
-.btn-read-more {
-    background: none;
-    border: none;
-    color: var(--rojo);
-    font-family: var(--fuente);
-    font-weight: 700;
-    font-size: 0.87rem;
-    cursor: pointer;
+.service-card .btn-primary {
     margin-top: auto;
-    padding: 12px 0 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.2s;
+    align-self: flex-start;
+    padding: 11px 22px;
+    font-size: 0.88rem;
 }
-.btn-read-more:hover { color: var(--azul-oscuro); }
-.btn-read-more i { font-size: 0.7rem; transition: transform 0.3s; }
-.btn-read-more.open i { transform: rotate(180deg); }
 
 /* CTA card */
 .service-card--cta {
@@ -651,7 +627,6 @@ a  { color: inherit; text-decoration: none; }
     border-top-color: var(--rojo);
     justify-content: center;
     align-items: flex-start;
-    gap: 16px;
 }
 .service-card--cta:hover { transform: translateY(-8px); border-top-color: var(--rojo); }
 .cta-icon {
@@ -1134,43 +1109,26 @@ a  { color: inherit; text-decoration: none; }
 }
 
 /* ==========================================================================
-   RESPONSIVE — Solo ajustes para tablet y móvil.
-   El diseño desktop (> 1024px) no se toca.
+   RESPONSIVE
    ========================================================================== */
 
 /* ---- TABLET: 768px – 1024px ---- */
 @media (max-width: 1024px) {
-
-    /* Servicios: 2 columnas en tablet */
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-
-    /* Testimonios: 2 visibles en tablet */
     .testimonial-card { min-width: calc(50% - 12px); }
-
-    /* Esencia: una columna, imagen arriba */
     .essence-grid { grid-template-columns: 1fr; gap: 50px; }
     .essence-img-col { order: -1; }
     .essence-img-wrap img { max-height: 380px; object-fit: cover; }
-
-    /* ¿Por qué elegirnos?: una columna */
     .why-grid { grid-template-columns: 1fr; gap: 50px; }
     .why-img img { max-height: 340px; object-fit: cover; }
-
-    /* FAQ: una columna */
     .faq-layout { grid-template-columns: 1fr; gap: 40px; }
-
-    /* Footer: una columna */
     .footer-top { grid-template-columns: 1fr; gap: 50px; }
-
-    /* Stats: sin separadores, se juntan */
     .stats-inner { flex-wrap: wrap; justify-content: center; gap: 0; }
     .stat-item   { padding: 14px 30px; min-width: 45%; }
 }
 
 /* ---- MÓVIL: hasta 768px ---- */
 @media (max-width: 768px) {
-
-    /* Fix background-attachment: fixed en iOS/Safari */
     .hero-section {
         background-attachment: scroll;
         background-position: center center;
@@ -1182,12 +1140,10 @@ a  { color: inherit; text-decoration: none; }
     .faq-section { padding: 70px 0; }
     .footer { padding-top: 60px; }
 
-    /* ---- HEADER ---- */
-    .top-bar { display: none; } /* Ocultar barra superior en móvil */
+    .top-bar { display: none; }
     .nav-container { height: 68px; }
     .main-logo-img { height: 42px; }
 
-    /* Menú hamburguesa */
     .menu-hamburger { display: flex; }
     .nav-links {
         position: fixed;
@@ -1216,7 +1172,6 @@ a  { color: inherit; text-decoration: none; }
     .nav-links a:not(.btn-cta):hover { background: rgba(255,255,255,0.07); }
     .btn-cta { justify-content: center; margin-top: 8px; }
 
-    /* Dropdown móvil */
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -1233,7 +1188,6 @@ a  { color: inherit; text-decoration: none; }
     .nav-dropdown.active .dropdown-menu { display: block; }
     .dropdown-menu a { padding: 10px 20px; font-size: 0.88rem; }
 
-    /* ---- HERO ---- */
     .hero-section { padding-top: 100px; min-height: 100svh; }
     .hero-content { max-width: 100%; }
     .hero-badge { font-size: 0.75rem; padding: 6px 12px; }
@@ -1244,7 +1198,6 @@ a  { color: inherit; text-decoration: none; }
     .hero-btns .btn-outline { width: 100%; justify-content: center; }
     .hero-scroll-hint { display: none; }
 
-    /* ---- STATS ---- */
     .stats-bar { padding: 20px 0; }
     .stats-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     .stat-divider { display: none; }
@@ -1256,7 +1209,6 @@ a  { color: inherit; text-decoration: none; }
     .stat-num { font-size: 2rem; }
     .stat-label { font-size: 0.72rem; }
 
-    /* ---- ESENCIA ---- */
     .essence-grid { grid-template-columns: 1fr; gap: 36px; }
     .essence-img-col { order: -1; }
     .essence-img-wrap img { max-height: 280px; object-fit: cover; border-radius: 16px; }
@@ -1266,15 +1218,14 @@ a  { color: inherit; text-decoration: none; }
     .value-chip { font-size: 0.78rem; padding: 6px 12px; }
     .btn-primary[style*="fit-content"] { width: 100% !important; justify-content: center; }
 
-    /* ---- SERVICIOS ---- */
     .services-grid { grid-template-columns: 1fr; gap: 16px; }
     .service-card { padding: 28px 22px; }
+    .service-card .btn-primary { width: 100% !important; justify-content: center; }
     .service-icon { width: 52px; height: 52px; font-size: 1.3rem; }
     .section-header { margin-bottom: 36px; }
     .section-header .titulo-seccion { font-size: 1.7rem; }
     .section-desc { font-size: 0.95rem; }
 
-    /* ---- ¿POR QUÉ ELEGIRNOS? ---- */
     .why-grid { grid-template-columns: 1fr; gap: 36px; }
     .why-img { order: -1; }
     .why-img img { max-height: 260px; object-fit: cover; border-radius: 16px; }
@@ -1282,7 +1233,6 @@ a  { color: inherit; text-decoration: none; }
     .why-text h2 { font-size: 1.7rem; }
     .why-num { font-size: 0.95rem; min-width: 30px; }
 
-    /* ---- TESTIMONIOS ---- */
     .testimonials-section { padding: 70px 0; }
     .testimonial-carousel-wrapper { gap: 8px; }
     .testimonial-card {
@@ -1292,7 +1242,6 @@ a  { color: inherit; text-decoration: none; }
     }
     .btn-carousel-nav { width: 36px; height: 36px; font-size: 0.8rem; flex-shrink: 0; }
 
-    /* ---- FAQ ---- */
     .faq-layout { grid-template-columns: 1fr; gap: 32px; }
     .faq-header h2 { font-size: 1.7rem; }
     .faq-question { padding: 18px 20px; }
@@ -1300,7 +1249,6 @@ a  { color: inherit; text-decoration: none; }
     .faq-answer { padding: 0 20px; }
     .faq-item.active .faq-answer { padding-bottom: 18px; }
 
-    /* ---- FOOTER ---- */
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
     .footer-form .form-row { grid-template-columns: 1fr; gap: 12px; }
     .form-header h3 { font-size: 1.3rem; }
@@ -1312,32 +1260,18 @@ a  { color: inherit; text-decoration: none; }
 /* ---- MÓVIL PEQUEÑO: hasta 480px ---- */
 @media (max-width: 480px) {
     .container { padding: 0 16px; }
-
-    /* Hero más compacto */
     .hero-content h1 { font-size: 1.75rem; }
     .hero-content p  { font-size: 0.92rem; }
-
-    /* Servicios */
     .service-card { padding: 24px 18px; }
     .service-card h3 { font-size: 1rem; }
-
-    /* Stats en una columna */
     .stats-inner { grid-template-columns: 1fr 1fr; }
     .stat-num { font-size: 1.8rem; }
-
-    /* FAQ */
     .faq-question { padding: 16px 18px; gap: 12px; }
     .faq-question h3 { font-size: 0.85rem; }
     .faq-icon { width: 28px; height: 28px; font-size: 0.75rem; }
-
-    /* Footer form */
     .footer-form input,
     .footer-form textarea { font-size: 0.88rem; }
     .footer-contact-item { font-size: 0.83rem; }
-
-    /* Botones hero full width */
     .btn-primary, .btn-outline { font-size: 0.9rem; padding: 13px 20px; }
-
-    /* WhatsApp más compacto */
     .whatsapp-btn { width: 52px; height: 52px; font-size: 1.7rem; bottom: 20px; right: 20px; }
 }

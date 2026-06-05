@@ -84,20 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(s => observer.observe(s));
 
     // =========================================================
-    // 5. SERVICIOS — LEER MÁS
-    // =========================================================
-    document.querySelectorAll('.btn-read-more').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const extra = btn.previousElementSibling;
-            if (!extra) return;
-            extra.classList.toggle('active');
-            btn.classList.toggle('open');
-            btn.querySelector('span').textContent = extra.classList.contains('active') ? 'Leer menos' : 'Leer más';
-        });
-    });
-
-    // =========================================================
-    // 6. CARRUSEL DE TESTIMONIOS + DOTS
+    // 5. CARRUSEL DE TESTIMONIOS + DOTS
     // =========================================================
     const track   = document.getElementById('trackT');
     const nextBtn = document.getElementById('nextT');
@@ -150,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [nextBtn, prevBtn].forEach(b => b?.addEventListener('click', () => { clearInterval(autoplay); autoplay = setInterval(() => goTo(currentIndex + 1 > totalCards() - getVisible() ? 0 : currentIndex + 1), 5000); }));
 
     // =========================================================
-    // 7. FAQ ACORDEÓN
+    // 6. FAQ ACORDEÓN
     // =========================================================
     document.querySelectorAll('.faq-question').forEach(q => {
         q.addEventListener('click', () => {
@@ -162,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================
-    // 8. ANIMACIONES REVEAL (Intersection Observer)
+    // 7. ANIMACIONES REVEAL (Intersection Observer)
     // =========================================================
     const revealObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
@@ -175,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // =========================================================
-    // 9. FORMULARIO — Feedback visual
+    // 8. FORMULARIO — Feedback visual
     // =========================================================
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
