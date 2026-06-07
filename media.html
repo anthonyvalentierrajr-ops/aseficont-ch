@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Medios - ASEFICONT CH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container top-bar-inner">
+                <div class="top-contact">
+                    <a href="tel:+573XXXXXXXXX" class="top-link"><i class="fas fa-phone-alt"></i> +57 3XX XXX XXXX</a>
+                    <a href="mailto:contacto@aseficont.com" class="top-link"><i class="fas fa-envelope"></i> contacto@aseficont.com</a>
+                </div>
+                <div class="top-social">
+                    <a href="https://facebook.com/aseficontch" target="_blank" rel="noopener" class="top-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/aseficontch" target="_blank" rel="noopener" class="top-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logo-aseficont-ch.png" alt="Logo ASEFICONT CH" class="main-logo-img">
+                </a>
+                <button class="menu-hamburger" id="menu-toggle" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-dropdown">
+                        <a href="index.html#nosotros"><i class="fas fa-users"></i> Quiénes Somos <i class="fas fa-chevron-down dd-arrow"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="historia.html"><i class="fas fa-book-open"></i> Nuestra Historia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#servicios"><i class="fas fa-briefcase"></i> Servicios</a></li>
+                    <li><a href="index.html#faq"><i class="fas fa-question-circle"></i> Preguntas</a></li>
+                    <li><a href="index.html#contacto" class="btn-cta"><i class="fas fa-calendar-check"></i> Consulta Gratuita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="h-hero">
+        <div class="h-hero__overlay"></div>
+        <div class="h-hero__particles">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="container h-hero__content">
+            <a href="index.html" class="h-breadcrumb"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+            <div class="h-hero__badge"><i class="fas fa-photo-video"></i> Recursos y Contenido · ASEFICONT CH</div>
+            <h1>Biblioteca<br><span class="h-accent">de Medios</span></h1>
+            <p>Recursos, guías, documentos y material audiovisual para apoyarte en la gestión contable, tributaria y financiera de tu empresa.</p>
+            <a href="#mb-recursos" class="h-scroll-cta">
+                <span>Explorar recursos</span>
+                <div class="h-scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar">
+        <div class="container stats-inner">
+            <div class="stat-item">
+                <span class="stat-num">+4</span>
+                <span class="stat-label">Años de experiencia</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">+200</span>
+                <span class="stat-label">Empresas asesoradas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Contenido profesional</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-num">Free</span>
+                <span class="stat-label">Acceso sin costo</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FILTROS + RECURSOS ===== -->
+    <section id="mb-recursos" class="mb-recursos">
+        <div class="container">
+
+            <!-- Filtros -->
+            <div class="mb-filtros">
+                <button class="mb-filtro active" data-filter="all">
+                    <i class="fas fa-th"></i> Todos
+                </button>
+                <button class="mb-filtro" data-filter="pdf">
+                    <i class="fas fa-file-pdf"></i> Documentos
+                </button>
+                <button class="mb-filtro" data-filter="galeria">
+                    <i class="fas fa-images"></i> Galería
+                </button>
+                <button class="mb-filtro" data-filter="video">
+                    <i class="fas fa-play-circle"></i> Videos
+                </button>
+            </div>
+
+            <!-- ===== DOCUMENTOS PDF ===== -->
+            <div class="mb-seccion" data-category="pdf">
+                <div class="mb-seccion__header">
+                    <div class="mb-seccion__icon"><i class="fas fa-file-pdf"></i></div>
+                    <div>
+                        <h2>Documentos y Guías</h2>
+                        <p>Material descargable para gestionar mejor tus obligaciones empresariales.</p>
+                    </div>
+                </div>
+                <div class="mb-docs-grid">
+
+                    <div class="mb-doc-card">
+                        <div class="mb-doc-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="mb-doc-info">
+                            <span class="mb-doc-tag">Tributario</span>
+                            <h3>Calendario Tributario 2026</h3>
+                            <p>Fechas clave de vencimiento para declaraciones de IVA, Renta, Retención en la Fuente e ICA.</p>
+                            <div class="mb-doc-meta">
+                                <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span><i class="fas fa-weight"></i> 1.2 MB</span>
+                            </div>
+                        </div>
+                        <a href="docs/calendario-tributario-2026.pdf" download class="mb-doc-btn">
+                            <i class="fas fa-download"></i> Descargar
+                        </a>
+                    </div>
+
+                    <div class="mb-doc-card">
+                        <div class="mb-doc-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="mb-doc-info">
+                            <span class="mb-doc-tag">Contable</span>
+                            <h3>Checklist Documentos para Declarar Renta</h3>
+                            <p>Lista completa de soportes necesarios para presentar correctamente la declaración de renta.</p>
+                            <div class="mb-doc-meta">
+                                <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span><i class="fas fa-weight"></i> 0.8 MB</span>
+                            </div>
+                        </div>
+                        <a href="docs/checklist-declaracion-renta.pdf" download class="mb-doc-btn">
+                            <i class="fas fa-download"></i> Descargar
+                        </a>
+                    </div>
+
+                    <div class="mb-doc-card">
+                        <div class="mb-doc-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="mb-doc-info">
+                            <span class="mb-doc-tag">Empresarial</span>
+                            <h3>Guía para Constituir una S.A.S. en Colombia</h3>
+                            <p>Paso a paso para crear tu empresa correctamente ante Cámara de Comercio y DIAN.</p>
+                            <div class="mb-doc-meta">
+                                <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span><i class="fas fa-weight"></i> 1.5 MB</span>
+                            </div>
+                        </div>
+                        <a href="docs/guia-constituir-sas.pdf" download class="mb-doc-btn">
+                            <i class="fas fa-download"></i> Descargar
+                        </a>
+                    </div>
+
+                    <div class="mb-doc-card">
+                        <div class="mb-doc-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="mb-doc-info">
+                            <span class="mb-doc-tag">Financiero</span>
+                            <h3>Guía de Obligaciones según Tipo de Empresa</h3>
+                            <p>Conoce qué obligaciones tributarias y contables aplican según el régimen y tamaño de tu negocio.</p>
+                            <div class="mb-doc-meta">
+                                <span><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span><i class="fas fa-weight"></i> 1.1 MB</span>
+                            </div>
+                        </div>
+                        <a href="docs/guia-obligaciones-empresa.pdf" download class="mb-doc-btn">
+                            <i class="fas fa-download"></i> Descargar
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== GALERÍA DE FOTOS ===== -->
+            <div class="mb-seccion" data-category="galeria">
+                <div class="mb-seccion__header">
+                    <div class="mb-seccion__icon"><i class="fas fa-images"></i></div>
+                    <div>
+                        <h2>Galería Institucional</h2>
+                        <p>Conoce nuestro equipo, instalaciones y momentos que nos definen como empresa.</p>
+                    </div>
+                </div>
+                <div class="mb-galeria-grid">
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/equipo-de-trabajo.jpg" alt="Equipo ASEFICONT CH" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Nuestro Equipo</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/cliente-satisfecho.jpg" alt="Atención al cliente" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Atención Personalizada</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/banner-gestion-contable.jpg" alt="Gestión Contable" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Gestión Contable</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/banner-asesoria-tributaria.png" alt="Asesoría Tributaria" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Asesoría Tributaria</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/banner-planeacion-y-gestion-financiera.png" alt="Planeación Financiera" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Planeación Financiera</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/banner-gestion-administrativa.jpg" alt="Gestión Administrativa" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Gestión Administrativa</span>
+                        </div>
+                    </div>
+
+                     <div class="mb-foto-card" onclick="abrirLightbox(this)">
+                        <img src="img/banner-biblioteca-de-medios.jpg" alt="Biblioteca de Medios" loading="lazy">
+                        <div class="mb-foto-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>Biblioteca de Medios</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== VIDEOS ===== -->
+            <div class="mb-seccion" data-category="video">
+                <div class="mb-seccion__header">
+                    <div class="mb-seccion__icon"><i class="fas fa-play-circle"></i></div>
+                    <div>
+                        <h2>Videos Institucionales</h2>
+                        <p>Conoce más sobre ASEFICONT CH y nuestros servicios a través de contenido audiovisual.</p>
+                    </div>
+                </div>
+                <div class="mb-videos-grid">
+
+                    <div class="mb-video-card">
+                        <div class="mb-video-thumb">
+                            <img src="img/equipo-de-trabajo.jpg" alt="Quiénes somos" loading="lazy">
+                            <div class="mb-video-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="mb-video-dur">2:45</span>
+                        </div>
+                        <div class="mb-video-info">
+                            <span class="mb-doc-tag">Institucional</span>
+                            <h3>¿Quiénes somos? ASEFICONT CH</h3>
+                            <p>Conoce nuestra historia, equipo y el compromiso que tenemos con cada uno de nuestros clientes.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-video-card">
+                        <div class="mb-video-thumb">
+                            <img src="img/banner-asesoria-tributaria.png" alt="Obligaciones tributarias" loading="lazy">
+                            <div class="mb-video-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="mb-video-dur">4:10</span>
+                        </div>
+                        <div class="mb-video-info">
+                            <span class="mb-doc-tag">Tributario</span>
+                            <h3>Obligaciones Tributarias para Pymes en 2026</h3>
+                            <p>Resumen claro de las principales obligaciones fiscales que toda empresa debe conocer este año.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-video-card">
+                        <div class="mb-video-thumb">
+                            <img src="img/banner-planeacion-y-gestion-financiera.png" alt="Flujo de caja" loading="lazy">
+                            <div class="mb-video-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <span class="mb-video-dur">3:30</span>
+                        </div>
+                        <div class="mb-video-info">
+                            <span class="mb-doc-tag">Financiero</span>
+                            <h3>Cómo controlar el flujo de caja de tu empresa</h3>
+                            <p>Tips prácticos para mantener la liquidez de tu negocio organizada mes a mes.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="sv-cta">
+        <div class="sv-cta__overlay"></div>
+        <div class="container sv-cta__inner">
+            <div class="sv-cta__icon"><i class="fas fa-handshake"></i></div>
+            <h2>¿Necesitas asesoría personalizada?</h2>
+            <p>Los recursos son un punto de partida. Nuestro equipo puede acompañarte de forma directa en la gestión de tu empresa.</p>
+            <div class="sv-cta__btns">
+                <a href="index.html#contacto" class="btn-primary"><span>Agendar consultoría gratuita</span> <i class="fas fa-calendar-alt"></i></a>
+                <a href="index.html#servicios" class="btn-outline"><span>Ver todos los servicios</span> <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="h-footer-simple">
+                <div class="h-footer-brand">
+                    <img src="img/logo-aseficont-ch.png" alt="ASEFICONT CH" class="footer-logo">
+                    <p class="footer-desc">Firma contable, tributaria y financiera con sede en Buenaventura, Colombia. Más de 4 años acompañando a empresas y emprendedores en su crecimiento.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/aseficontch" target="_blank" rel="noopener" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/aseficontch" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/573XXXXXXXXX" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="h-footer-contact">
+                    <p class="h-footer-contact-title">Contáctanos</p>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cra. 64 #4-05, Barrio Panamericano,<br>Buenaventura, Valle del Cauca</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+573XXXXXXXXX">+57 3XX XXX XXXX</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contacto@aseficont.com">contacto@aseficont.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-footer-cta-col">
+                    <p class="h-footer-contact-title">¿Necesitas asesoría?</p>
+                    <p class="footer-desc">Agenda una consultoría sin costo desde nuestra página principal.</p>
+                    <a href="index.html#contacto" class="btn-primary" style="margin-top: 16px; width: fit-content;">
+                        <span>Ir al formulario</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>© 2026 ASEFICONT CH S.A.S. · Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="mb-lightbox" id="lightbox" onclick="cerrarLightbox()">
+        <button class="mb-lightbox__close" onclick="cerrarLightbox()"><i class="fas fa-times"></i></button>
+        <img src="" alt="" id="lightbox-img">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <a href="https://wa.me/573XXXXXXXXX?text=Hola%20ASEFICONT%20CH,%20me%20gustaría%20una%20asesoría." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+    // ===== FILTROS =====
+    document.querySelectorAll('.mb-filtro').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.mb-filtro').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.mb-seccion').forEach(sec => {
+                if (filter === 'all' || sec.dataset.category === filter) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // ===== LIGHTBOX =====
+    function abrirLightbox(card) {
+        const img = card.querySelector('img');
+        const caption = card.querySelector('.mb-foto-overlay span').textContent;
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox-img').alt = img.alt;
+        document.getElementById('lightbox-caption').textContent = caption;
+        document.getElementById('lightbox').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function cerrarLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightbox(); });
+    </script>
+</body>
+</html>
