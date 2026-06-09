@@ -284,7 +284,11 @@ a  { color: inherit; text-decoration: none; }
 .nav-links a.active { color: #fff; background: rgba(255,255,255,0.07); }
 
 /* Dropdown */
-.nav-dropdown { position: relative; }
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 .dropdown-menu {
     position: absolute;
     top: calc(100% + 8px);
@@ -312,7 +316,20 @@ a  { color: inherit; text-decoration: none; }
     border-radius: 0;
     font-size: 0.88rem;
 }
-.dd-arrow { font-size: 0.7rem; margin-left: 2px; }
+.dd-arrow { font-size: 0.7rem; }
+
+/* Botón separado para abrir dropdown */
+.dd-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 6px;
+    color: rgba(255,255,255,0.87);
+    display: none; /* Oculto en desktop — el hover lo maneja todo */
+    align-items: center;
+    transition: var(--transicion);
+    border-radius: 6px;
+}
 
 /* Hamburger */
 .menu-hamburger {
@@ -612,13 +629,41 @@ a  { color: inherit; text-decoration: none; }
     color: var(--texto-suave);
     font-size: 0.92rem;
     line-height: 1.65;
-    flex: 1;
+    margin-bottom: 4px;
 }
-.service-card .btn-primary {
+.sv-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--rojo);
     margin-top: auto;
+    padding-top: 6px;
+    border-bottom: 2px solid transparent;
+    transition: var(--transicion);
+    text-decoration: none;
+}
+.sv-text-link i {
+    font-size: 0.72rem;
+    transition: transform 0.3s ease;
+}
+.sv-text-link:hover {
+    color: var(--azul-oscuro);
+    border-bottom-color: var(--azul-oscuro);
+    gap: 12px;
+}
+.sv-text-link:hover i {
+    transform: translateX(4px);
+}
+
+/* CTA card button — restaura comportamiento normal */
+.service-card--cta .btn-primary,
+.service-card--cta .cta-btn {
+    margin-top: 0;
     align-self: flex-start;
     padding: 11px 22px;
-    font-size: 0.88rem;
 }
 
 /* CTA card */
@@ -627,6 +672,7 @@ a  { color: inherit; text-decoration: none; }
     border-top-color: var(--rojo);
     justify-content: center;
     align-items: flex-start;
+    gap: 16px;
 }
 .service-card--cta:hover { transform: translateY(-8px); border-top-color: var(--rojo); }
 .cta-icon {
@@ -1172,6 +1218,26 @@ a  { color: inherit; text-decoration: none; }
     .nav-links a:not(.btn-cta):hover { background: rgba(255,255,255,0.07); }
     .btn-cta { justify-content: center; margin-top: 8px; }
 
+    /* Móvil: dd-toggle visible como flecha al lado del link */
+    .dd-toggle {
+        display: inline-flex;
+        padding: 8px 10px;
+        margin-left: 2px;
+        flex-shrink: 0;
+    }
+
+    /* nav-dropdown: fila para link + flecha, con dropdown debajo */
+    .nav-dropdown {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+    .nav-dropdown > a {
+        flex: 1;
+    }
+
+    /* Dropdown: bloque que ocupa toda la fila siguiente */
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -1179,11 +1245,13 @@ a  { color: inherit; text-decoration: none; }
         transform: none;
         box-shadow: none;
         border-radius: 10px;
-        border-top-width: 2px;
+        border-top: 2px solid var(--rojo);
         display: none;
         background: rgba(255,255,255,0.05);
         margin-top: 4px;
         padding: 6px 0;
+        width: 100%;
+        flex-basis: 100%;
     }
     .nav-dropdown.active .dropdown-menu { display: block; }
     .dropdown-menu a { padding: 10px 20px; font-size: 0.88rem; }

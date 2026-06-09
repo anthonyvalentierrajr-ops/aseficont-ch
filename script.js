@@ -21,15 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // =========================================================
     // 2. DROPDOWN MENÚ (desktop hover / mobile click)
+    // En móvil: la flecha (dd-toggle) abre el dropdown.
+    // El link de "Quiénes Somos" navega libremente siempre.
     // =========================================================
     document.querySelectorAll('.nav-dropdown').forEach(drop => {
-        const link = drop.querySelector('a');
-        link?.addEventListener('click', (e) => {
+        const toggle = drop.querySelector('.dd-toggle');
+
+        // Solo la flecha abre/cierra en móvil
+        toggle?.addEventListener('click', (e) => {
+            e.stopPropagation();
             if (window.innerWidth <= 768) {
-                e.preventDefault();
                 drop.classList.toggle('active');
             }
         });
+
+        // Desktop: hover abre el dropdown
         drop.addEventListener('mouseenter', () => {
             if (window.innerWidth > 768) drop.classList.add('active');
         });
