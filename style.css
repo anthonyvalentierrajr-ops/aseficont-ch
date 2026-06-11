@@ -152,9 +152,9 @@ a  { color: inherit; text-decoration: none; }
     font-size: 1rem;
     box-shadow: 0 8px 25px rgba(211,47,47,0.3);
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
     display: block;
-    margin: 0 auto;
+    margin: 0;
 }
 .btn-submit:hover {
     transform: translateY(-3px);
@@ -1066,6 +1066,113 @@ a  { color: inherit; text-decoration: none; }
     text-align: center;
 }
 .legal-notice i { color: var(--rojo); }
+
+/* =========================================================
+   TOOLTIP CONFIDENCIALIDAD
+   ========================================================= */
+.legal-tooltip-trigger {
+    position: relative;
+    cursor: default;
+}
+.legal-tooltip {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: var(--blanco);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    border-top: 3px solid var(--rojo);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s cubic-bezier(0.25,1,0.5,1);
+    transform: translateX(-50%) translateY(8px);
+    z-index: 100;
+    text-align: left;
+    pointer-events: none;
+}
+/* Flecha del tooltip */
+.legal-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--blanco);
+}
+.legal-tooltip-trigger:hover .legal-tooltip,
+.legal-tooltip-trigger:focus .legal-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.legal-tooltip__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.legal-tooltip__header i {
+    color: var(--rojo);
+    font-size: 1rem;
+}
+.legal-tooltip__header strong {
+    font-family: var(--fuente);
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: var(--azul-oscuro);
+    letter-spacing: 0.3px;
+}
+.legal-tooltip p {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.legal-tooltip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.legal-tooltip ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.80rem;
+    color: var(--texto);
+    line-height: 1.5;
+}
+.legal-tooltip ul li i {
+    color: var(--rojo);
+    font-size: 0.72rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* Móvil: tooltip abre hacia arriba pero ajustado al ancho */
+@media (max-width: 600px) {
+    .legal-tooltip {
+        width: 260px;
+        left: auto;
+        right: -10px;
+        transform: translateY(8px);
+    }
+    .legal-tooltip-trigger:hover .legal-tooltip,
+    .legal-tooltip-trigger:focus .legal-tooltip {
+        transform: translateY(0);
+    }
+    .legal-tooltip::after {
+        left: auto;
+        right: 24px;
+        transform: none;
+    }
+}
 
 /* Info side */
 .footer-logo {
