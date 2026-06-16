@@ -662,7 +662,12 @@
     padding: 60px 0;
     align-items: flex-start;
 }
-.h-footer-brand .footer-logo { margin-bottom: 16px; }
+.h-footer-brand .footer-logo {
+    height: auto;
+    width: 180px;
+    max-width: 100%;
+    margin-bottom: 16px;
+}
 .h-footer-contact-title {
     font-family: var(--fuente);
     font-size: 0.82rem;

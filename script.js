@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. SCROLL SUAVE Y LINK ACTIVO
     // =========================================================
     const setActive = (id) => {
-        document.querySelectorAll('.nav-links a').forEach(a => {
+        document.querySelectorAll('.nav-links a:not(.btn-cta)').forEach(a => {
             a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
         });
     };
