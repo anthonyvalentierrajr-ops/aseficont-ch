@@ -1423,7 +1423,7 @@ a  { color: inherit; text-decoration: none; }
     .footer-form .form-row { grid-template-columns: 1fr; gap: 12px; }
     .form-header h3 { font-size: 1.3rem; }
     .btn-submit { max-width: 100%; }
-    .footer-logo { height: 44px; }
+    
     .footer-desc { font-size: 0.86rem; }
 }
 
