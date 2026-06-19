@@ -168,21 +168,55 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // =========================================================
-    // 8. FORMULARIO — Feedback visual
+    // 8. FORMULARIO — Envío real vía PHP (enviar.php)
     // =========================================================
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    contactForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
+
         const btn = e.target.querySelector('.btn-submit');
         const originalHTML = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Enviado con éxito!</span>';
-        btn.style.background = 'linear-gradient(135deg, #2e7d32, #388e3c)';
+
+        // Estado "enviando..."
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Enviando...</span>';
         btn.disabled = true;
-        setTimeout(() => {
-            btn.innerHTML = originalHTML;
-            btn.style.background = '';
-            btn.disabled = false;
-            e.target.reset();
-        }, 3500);
+        if (formFeedback) { formFeedback.textContent = ''; formFeedback.className = 'form-feedback'; }
+
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Enviado con éxito!</span>';
+                btn.style.background = 'linear-gradient(135deg, #2e7d32, #388e3c)';
+                if (formFeedback) {
+                    formFeedback.textContent = data.message || 'Tu solicitud fue enviada correctamente.';
+                    formFeedback.className = 'form-feedback form-feedback--success';
+                }
+                contactForm.reset();
+            } else {
+                throw new Error(data.message || 'No se pudo enviar el mensaje.');
+            }
+        } catch (error) {
+            btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> <span>Error al enviar</span>';
+            btn.style.background = 'linear-gradient(135deg, #c62828, #e53935)';
+            if (formFeedback) {
+                formFeedback.textContent = error.message || 'Ocurrió un error. Intenta de nuevo o escríbenos por WhatsApp.';
+                formFeedback.className = 'form-feedback form-feedback--error';
+            }
+        } finally {
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 3500);
+        }
     });
 
 });

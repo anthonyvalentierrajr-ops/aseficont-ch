@@ -1040,6 +1040,27 @@ a  { color: inherit; text-decoration: none; }
 }
 .legal-notice i { color: var(--rojo); }
 
+/* Honeypot anti-spam — oculto para humanos, visible para bots */
+.form-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Feedback del formulario */
+.form-feedback {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 14px;
+    min-height: 18px;
+}
+.form-feedback--success { color: #4caf50; }
+.form-feedback--error   { color: #ff6b6b; }
+
 /* =========================================================
    TOOLTIP CONFIDENCIALIDAD
    ========================================================= */

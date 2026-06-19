@@ -18,7 +18,7 @@
             <div class="container top-bar-inner">
                 <div class="top-contact">
                     <a href="tel:+573XXXXXXXXX" class="top-link"><i class="fas fa-phone-alt"></i> +57 3XX XXX XXXX</a>
-                    <a href="mailto:contacto@aseficont.com" class="top-link"><i class="fas fa-envelope"></i> contacto@aseficont.com</a>
+                    <a href="mailto:contacto@aseficontch.com" class="top-link"><i class="fas fa-envelope"></i> contacto@aseficontch.com</a>
                 </div>
                 <div class="top-social">
                     <a href="https://facebook.com/aseficontch" target="_blank" rel="noopener" class="top-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -262,24 +262,24 @@
 
                         <div class="testimonial-card">
                             <div class="stars-row">★★★★★</div>
-                            <p>"ASEFICONT CH ha sido un aliado clave para la organización contable y tributaria de nuestra empresa. Su acompañamiento nos ha permitido tener mayor control y claridad en nuestros procesos financieros."</p>
+                            <p>"Su acompañamiento nos ha permitido tener mayor control y claridad en nuestros procesos contables y tributarios."</p>
                             <div class="client-info">
                                 <div class="client-avatar">PH</div>
                                 <div>
                                     <span class="client-name">Pastor Hernández</span>
-                                    <small>Gerente de Logistica Portuaria</small>
+                                    <small>Gerente Portuario</small>
                                 </div>
                             </div>
                         </div>
 
                         <div class="testimonial-card">
                             <div class="stars-row">★★★★★</div>
-                            <p>"Un equipo sumamente profesional. Redujeron nuestros riesgos financieros gracias a una planificación fiscal impecable."</p>
+                            <p>"Destaco su responsabilidad, profesionalismo y excelente atención. Su asesoría siempre ha sido clara, oportuna y de gran apoyo."</p>
                             <div class="client-info">
-                                <div class="client-avatar">DM</div>
+                                <div class="client-avatar">MC</div>
                                 <div>
-                                    <span class="client-name">Diego Martínez</span>
-                                    <small>Director de Finanzas</small>
+                                    <span class="client-name">Martha Caicedo</span>
+                                    <small>Pastora</small>
                                 </div>
                             </div>
                         </div>
@@ -288,22 +288,10 @@
                             <div class="stars-row">★★★★★</div>
                             <p>"Excelente atención, las respuestas siempre son rápidas, transparentes y sustentadas legalmente. Totalmente recomendados."</p>
                             <div class="client-info">
-                                <div class="client-avatar">JI</div>
+                                <div class="client-avatar">SA</div>
                                 <div>
-                                    <span class="client-name">Javier Ibarra</span>
-                                    <small>Desarrollador de Software</small>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="stars-row">★★★★★</div>
-                            <p>"Gracias a su auditoría identificamos fugas de capital y logramos optimizar un 15% nuestros costos administrativos."</p>
-                            <div class="client-info">
-                                <div class="client-avatar">CO</div>
-                                <div>
-                                    <span class="client-name">Carlos Ochoa</span>
-                                    <small>Director de Operaciones</small>
+                                    <span class="client-name">Sammy Aguirre</span>
+                                    <small>Ingeniero Civil</small>
                                 </div>
                             </div>
                         </div>
@@ -312,10 +300,10 @@
                             <div class="stars-row">★★★★★</div>
                             <p>"Delegar nuestra contabilidad en su firma ha sido la mejor decisión estratégica del año. Su reporte gerencial es impecable."</p>
                             <div class="client-info">
-                                <div class="client-avatar">OP</div>
+                                <div class="client-avatar">LM</div>
                                 <div>
-                                    <span class="client-name">Oscar Pineda</span>
-                                    <small>Ingeniero de Sistemas</small>
+                                    <span class="client-name">Leidy Martinez</span>
+                                    <small>Trabajadora Social</small>
                                 </div>
                             </div>
                         </div>
@@ -418,31 +406,33 @@
                         <p>Un especialista revisará tu empresa y te brindará orientación sin compromiso.</p>
                     </div>
 
-                    <form class="footer-form" id="contactForm">
+                    <form class="footer-form" id="contactForm" action="enviar.php" method="POST" novalidate>
                         <div class="form-row">
                             <div class="input-group">
                                 <i class="fas fa-user input-icon"></i>
-                                <input type="text" placeholder="Nombre completo" required>
+                                <input type="text" name="nombre" placeholder="Nombre completo" required>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-envelope input-icon"></i>
-                                <input type="email" placeholder="Correo electrónico" required>
+                                <input type="email" name="correo" placeholder="Correo electrónico" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="input-group">
                                 <i class="fas fa-phone input-icon"></i>
-                                <input type="tel" placeholder="Teléfono o WhatsApp" required>
+                                <input type="tel" name="telefono" placeholder="Teléfono o WhatsApp" required>
                             </div>
                             <div class="input-group">
                                 <i class="fas fa-building input-icon"></i>
-                                <input type="text" placeholder="Empresa (opcional)">
+                                <input type="text" name="empresa" placeholder="Empresa (opcional)">
                             </div>
                         </div>
                         <div class="input-group">
                             <i class="fas fa-comment-alt input-icon textarea-icon"></i>
-                            <textarea placeholder="Cuéntanos brevemente en qué necesitas apoyo..." required></textarea>
+                            <textarea name="mensaje" placeholder="Cuéntanos brevemente en qué necesitas apoyo..." required></textarea>
                         </div>
+                        <!-- Campo honeypot anti-spam -->
+                        <input type="hidden" name="sitio_web" value="">
                         <button type="submit" class="btn-submit">
                             <span>Enviar Solicitud</span> <i class="fas fa-paper-plane"></i>
                         </button>
@@ -464,6 +454,7 @@
                                 </div>
                             </span>
                         </div>
+                        <div class="form-feedback" id="formFeedback"></div>
                     </form>
                 </div>
 
@@ -482,7 +473,7 @@
                         </div>
                         <div class="footer-contact-item">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:contacto@aseficont.com">contacto@aseficont.com</a>
+                            <a href="mailto:contacto@aseficontch.com">contacto@aseficontch.com</a>
                         </div>
                     </div>
 
