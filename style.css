@@ -322,13 +322,32 @@ a  { color: inherit; text-decoration: none; }
 .dd-toggle {
     background: none;
     border: none;
-    cursor: pointer;
-    padding: 8px 6px;
-    color: rgba(255,255,255,0.87);
-    display: none; /* Oculto en desktop — el hover lo maneja todo */
+    cursor: default;
+    padding: 4px 4px;
+    color: rgba(255,255,255,0.7);
+    display: inline-flex;
     align-items: center;
     transition: var(--transicion);
     border-radius: 6px;
+    pointer-events: none;
+}
+.dd-toggle .dd-arrow {
+    transition: transform 0.3s ease;
+}
+/* Desktop: rota con hover */
+@media (min-width: 769px) {
+    .nav-dropdown:hover .dd-toggle .dd-arrow {
+        transform: rotate(180deg);
+    }
+}
+/* Móvil: SOLO active controla la rotación, hover neutralizado */
+@media (max-width: 768px) {
+    .nav-dropdown .dd-toggle .dd-arrow {
+        transform: rotate(0deg) !important;
+    }
+    .nav-dropdown.active .dd-toggle .dd-arrow {
+        transform: rotate(180deg) !important;
+    }
 }
 
 /* Hamburger */
@@ -1332,6 +1351,8 @@ a  { color: inherit; text-decoration: none; }
         padding: 8px 10px;
         margin-left: 2px;
         flex-shrink: 0;
+        cursor: pointer;
+        pointer-events: auto;
     }
 
     /* nav-dropdown: fila para link + flecha, con dropdown debajo */

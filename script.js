@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navLinks && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
             navLinks.classList.remove('active');
             menuBtn.classList.remove('active');
+            // También cerrar dropdowns abiertos
+            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
         }
     });
 
