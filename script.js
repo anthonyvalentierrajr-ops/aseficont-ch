@@ -6,18 +6,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuBtn  = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
 
+    // Crear overlay dinámicamente
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+
+    function abrirMenu() {
+        navLinks.classList.add('active');
+        menuBtn.classList.add('active');
+        overlay.style.display = 'block';
+        setTimeout(() => overlay.classList.add('active'), 10);
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarMenu() {
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        setTimeout(() => { overlay.style.display = 'none'; }, 300);
+        document.body.style.overflow = '';
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
+    }
+
     menuBtn?.addEventListener('click', (e) => {
         e.stopPropagation();
-        navLinks.classList.toggle('active');
-        menuBtn.classList.toggle('active');
+        if (navLinks.classList.contains('active')) {
+            cerrarMenu();
+        } else {
+            abrirMenu();
+        }
+    });
+
+    // Cerrar al hacer clic en el overlay
+    overlay.addEventListener('click', cerrarMenu);
+
+    // Cerrar al hacer clic en cualquier link del menú
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            cerrarMenu();
+        });
     });
 
     document.addEventListener('click', (e) => {
         if (navLinks && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
-            navLinks.classList.remove('active');
-            menuBtn.classList.remove('active');
-            // También cerrar dropdowns abiertos
-            document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
+            cerrarMenu();
         }
     });
 
