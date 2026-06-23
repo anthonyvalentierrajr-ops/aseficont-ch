@@ -355,8 +355,8 @@ a  { color: inherit; text-decoration: none; }
     display: none;
     flex-direction: column;
     gap: 5px;
-    background: rgba(211,47,47,0.15);
-    border: 1px solid rgba(211,47,47,0.3);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 10px;
     cursor: pointer;
     z-index: 1200;
@@ -364,8 +364,8 @@ a  { color: inherit; text-decoration: none; }
     transition: var(--transicion);
 }
 .menu-hamburger:hover {
-    background: rgba(211,47,47,0.25);
-    border-color: rgba(211,47,47,0.5);
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.2);
 }
 .menu-hamburger span {
     width: 22px; height: 2px;
@@ -376,7 +376,7 @@ a  { color: inherit; text-decoration: none; }
 }
 .menu-hamburger.active {
     background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.15);
 }
 .menu-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
 .menu-hamburger.active span:nth-child(2) { opacity: 0; width: 0; }
@@ -1306,6 +1306,9 @@ a  { color: inherit; text-decoration: none; }
    RESPONSIVE
    ========================================================================== */
 
+/* Ocultar redes sociales del menú en desktop */
+.nav-social-mobile { display: none; }
+
 /* ---- TABLET: 768px – 1024px ---- */
 @media (max-width: 1024px) {
     .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1345,72 +1348,98 @@ a  { color: inherit; text-decoration: none; }
     .menu-hamburger { display: flex; }
     .nav-links {
         position: fixed;
-        top: 0; right: -100%;
-        width: 100%; height: 100dvh;
-        background: linear-gradient(180deg, #080f1d 0%, #0a192f 100%);
+        top: 0; right: -300px;
+        width: 280px; height: 100dvh;
+        background: linear-gradient(160deg, #0d1f38 0%, #0a192f 60%, #091526 100%);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 80px 32px 60px;
-        gap: 6px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 100px 20px 40px;
+        gap: 4px;
+        transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
         overflow-y: auto;
+        box-shadow: -8px 0 40px rgba(0,0,0,0.5);
         z-index: 1100;
         list-style: none;
+        border-left: 1px solid rgba(211,47,47,0.15);
     }
     .nav-links.active { right: 0; }
-    .nav-links li { width: 100%; max-width: 340px; }
+    .nav-links li { width: 100%; }
 
-    /* Franja decorativa roja superior */
-    .nav-links::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 40px;
-        background: linear-gradient(180deg, var(--rojo) 0%, rgba(211,47,47,0.15) 60%, transparent 100%);
-        pointer-events: none;
-        z-index: 0;
-    }
-    /* Franja decorativa inferior más sutil */
-    .nav-links::after {
-        content: '';
-        position: absolute;
-        bottom: 0; left: 0; right: 0;
-        height: 28px;
-        background: linear-gradient(0deg, rgba(211,47,47,0.18) 0%, rgba(211,47,47,0.06) 60%, transparent 100%);
-        pointer-events: none;
-        z-index: 0;
-    }
+    /* Sin gradiente superior — solo el borde izquierdo del panel */
+    .nav-links::before { display: none; }
 
     .nav-links a {
         width: 100%;
-        padding: 15px 20px;
-        font-size: 1rem;
+        padding: 13px 16px;
+        font-size: 0.95rem;
         font-weight: 700;
-        border-radius: 12px;
-        justify-content: flex-start;
-        border: 1px solid transparent;
+        border-radius: 10px;
+        border-left: 3px solid transparent;
         transition: all 0.25s ease;
-        letter-spacing: 0.3px;
     }
     .nav-links a:not(.btn-cta):hover,
     .nav-links a.active {
-        background: rgba(211,47,47,0.1);
-        border-color: rgba(211,47,47,0.25);
+        background: rgba(255,255,255,0.07);
+        border-left-color: transparent;
         color: #fff;
-        transform: translateX(4px);
+        padding-left: 16px;
     }
     .nav-links li + li {
-        border-top: 1px solid rgba(255,255,255,0.04);
+        border-top: 1px solid rgba(255,255,255,0.05);
     }
     .btn-cta {
         justify-content: center;
-        margin-top: 16px;
-        width: 100%;
-        padding: 16px 20px !important;
-        font-size: 1rem !important;
-        border: none !important;
-        transform: none !important;
+        margin-top: 12px;
+        border-left: none !important;
+        border-radius: 10px !important;
+        padding-left: 16px !important;
+    }
+
+    /* Redes sociales al fondo del menú móvil */
+    .nav-social-mobile {
+        display: flex;
+        margin-top: auto;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255,255,255,0.08) !important;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .nav-social-mobile p {
+        font-family: var(--fuente);
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.35);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-social-mobile .social-icons {
+        display: flex;
+        gap: 10px;
+    }
+    .nav-social-mobile .social-icons a {
+        width: 38px; height: 38px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-left: 1px solid rgba(255,255,255,0.1) !important;
+        color: rgba(255,255,255,0.6);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.9rem;
+        padding: 0 !important;
+        padding-left: 0 !important;
+        transition: var(--transicion);
+        text-decoration: none;
+    }
+    .nav-social-mobile .social-icons a:hover {
+        background: rgba(255,255,255,0.12) !important;
+        color: #fff !important;
+        border-left-color: transparent !important;
+        padding-left: 0 !important;
+        transform: none;
     }
 
     /* Móvil: dd-toggle visible como flecha al lado del link */
