@@ -10,7 +10,7 @@
     align-items: center;
     position: relative;
     padding-top: 130px;
-    background: url('img/banner-nuestra-historia.jpeg') no-repeat center center / cover;
+    background: url('img/banner_nuestra_historia.webp') no-repeat center center / cover;
     background-attachment: fixed;
 }
 .h-hero__overlay {
@@ -463,23 +463,23 @@
 }
 
 /* ---- CTA FINAL ---- */
-.h-cta {
+.sv-cta {
     padding: 110px 0;
-    background: url('img/contaduria.png') no-repeat center center / cover;
+    background: url('img/banner_inicio.webp') no-repeat center center / cover;
     position: relative;
     text-align: center;
 }
-.h-cta__overlay {
+.sv-cta__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(6,15,27,0.95), rgba(13,28,60,0.92));
 }
-.h-cta__inner {
+.sv-cta__inner {
     position: relative;
     z-index: 2;
     color: var(--blanco);
 }
-.h-cta__icon {
+.sv-cta__icon {
     width: 80px; height: 80px;
     border-radius: 50%;
     background: rgba(211,47,47,0.15);
@@ -489,21 +489,21 @@
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 28px;
 }
-.h-cta__inner h2 {
+.sv-cta__inner h2 {
     font-family: var(--fuente);
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 800;
     margin-bottom: 16px;
     line-height: 1.2;
 }
-.h-cta__inner p {
+.sv-cta__inner p {
     color: rgba(255,255,255,0.72);
     font-size: 1.05rem;
     line-height: 1.7;
-    max-width: 580px;
+    max-width: 520px;
     margin: 0 auto 40px;
 }
-.h-cta__btns {
+.sv-cta__btns {
     display: flex;
     gap: 16px;
     justify-content: center;
@@ -560,7 +560,7 @@
     .h-valores,
     .h-mision,
     .h-vision,
-    .h-cta { padding: 70px 0; }
+    .sv-cta { padding: 70px 0; }
 
     /* Fix background-attachment en iOS/Safari */
     .h-hero {
@@ -636,12 +636,12 @@
     .h-section-header h2 { font-size: 1.7rem; }
 
     /* CTA */
-    .h-cta__inner h2 { font-size: 1.7rem; }
-    .h-cta__inner p  { font-size: 0.95rem; }
-    .h-cta__icon { width: 64px; height: 64px; font-size: 1.6rem; margin-bottom: 20px; }
-    .h-cta__btns { flex-direction: column; align-items: center; gap: 12px; }
-    .h-cta__btns .btn-primary,
-    .h-cta__btns .btn-outline { width: 100%; max-width: 320px; justify-content: center; }
+    .sv-cta__inner h2 { font-size: 1.7rem; }
+    .sv-cta__inner p  { font-size: 0.95rem; }
+    .sv-cta__icon { width: 64px; height: 64px; font-size: 1.6rem; margin-bottom: 20px; }
+    .sv-cta__btns { flex-direction: column; align-items: center; gap: 12px; }
+    .sv-cta__btns .btn-primary,
+    .sv-cta__btns .btn-outline { width: 100%; max-width: 320px; justify-content: center; }
 }
 
 @media (max-width: 480px) {

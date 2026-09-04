@@ -202,7 +202,63 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // =========================================================
-    // 8. FORMULARIO — Envío real vía PHP (enviar.php)
+    // 8. BIBLIOTECA DE MEDIOS
+    // =========================================================
+    document.querySelectorAll('.mb-filtro').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.mb-filtro').forEach(filterBtn => filterBtn.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.mb-seccion').forEach(section => {
+                section.style.display = filter === 'all' || section.dataset.category === filter ? 'block' : 'none';
+            });
+        });
+    });
+
+    document.querySelectorAll('.mb-video-card').forEach(card => {
+        const playButton = card.querySelector('.mb-video-play');
+        const thumbnail = card.querySelector('.mb-video-thumb');
+
+        playButton?.addEventListener('click', () => {
+            const video = document.createElement('video');
+            video.className = 'mb-video-player';
+            video.controls = true;
+            video.setAttribute('controlsList', 'nodownload');
+            video.autoplay = true;
+            video.preload = 'metadata';
+            video.poster = thumbnail.querySelector('img').src;
+            video.setAttribute('aria-label', card.querySelector('h3').textContent);
+
+            const source = document.createElement('source');
+            source.src = card.dataset.video;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            thumbnail.replaceChildren(video);
+            video.focus();
+        });
+    });
+
+    // =========================================================
+    // 9. BARRAS DE VISION
+    // =========================================================
+    const visionBars = document.querySelectorAll('.h-vision__bars');
+    if (visionBars.length) {
+        const barObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.h-vbar__fill').forEach(bar => {
+                        const width = bar.style.getPropertyValue('--w');
+                        bar.style.width = width || '0%';
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        visionBars.forEach(barGroup => barObserver.observe(barGroup));
+    }
+
+    // =========================================================
+    // 10. FORMULARIO — Envío real vía PHP (enviar.php)
     // =========================================================
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
@@ -253,4 +309,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+});
+
+// =========================================================
+// LIGHTBOX DE LA GALERIA
+// =========================================================
+function abrirLightbox(card) {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    const img = card.querySelector('img');
+    const caption = card.querySelector('.mb-foto-overlay span').textContent;
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox-caption').textContent = caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') cerrarLightbox();
 });

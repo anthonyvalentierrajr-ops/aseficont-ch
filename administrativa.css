@@ -13,7 +13,7 @@
     align-items: center;
     position: relative;
     padding-top: 130px;
-    background: url('img/banner-gestion-administrativa.jpg') no-repeat center center / cover;
+    background: url('img/banner_gestion_administrativa.webp') no-repeat center center / cover;
     background-attachment: fixed;
 }
 .h-hero__overlay {
@@ -374,7 +374,7 @@
    ========================================================= */
 .sv-cta {
     padding: 110px 0;
-    background: url('img/banner-inicio.jpg') no-repeat center center / cover;
+    background: url('img/banner_inicio.webp') no-repeat center center / cover;
     position: relative;
     text-align: center;
 }

@@ -23,6 +23,8 @@ $nombreSitio     = "ASEFICONT CH";
 // ---------------------------------------------------------
 // Solo permitir peticiones POST (las que envía el formulario)
 // ---------------------------------------------------------
+header("Content-Type: application/json; charset=UTF-8");
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
     echo json_encode(["status" => "error", "message" => "Método no permitido."]);
@@ -42,17 +44,17 @@ if (!empty($_POST["sitio_web"] ?? "")) {
 // ---------------------------------------------------------
 // Recolectar y limpiar los datos del formulario
 // ---------------------------------------------------------
-function limpiar($valor) {
+function limpiarTexto($valor) {
     $valor = trim($valor ?? "");
     $valor = stripslashes($valor);
     return htmlspecialchars($valor, ENT_QUOTES, "UTF-8");
 }
 
-$nombre   = limpiar($_POST["nombre"] ?? "");
-$correo   = limpiar($_POST["correo"] ?? "");
-$telefono = limpiar($_POST["telefono"] ?? "");
-$empresa  = limpiar($_POST["empresa"] ?? "");
-$mensaje  = limpiar($_POST["mensaje"] ?? "");
+$nombre   = limpiarTexto($_POST["nombre"] ?? "");
+$correo   = trim($_POST["correo"] ?? "");
+$telefono = limpiarTexto($_POST["telefono"] ?? "");
+$empresa  = limpiarTexto($_POST["empresa"] ?? "");
+$mensaje  = limpiarTexto($_POST["mensaje"] ?? "");
 
 // ---------------------------------------------------------
 // Validaciones básicas del lado del servidor
@@ -78,6 +80,8 @@ if (!empty($errores)) {
     exit;
 }
 
+$correoHtml = htmlspecialchars($correo, ENT_QUOTES, "UTF-8");
+
 // ---------------------------------------------------------
 // Construir el correo
 // ---------------------------------------------------------
@@ -93,7 +97,7 @@ $cuerpoHtml = "
         </div>
         <div style='background: #ffffff; padding: 30px; border-radius: 0 0 10px 10px;'>
             <p><strong>Nombre completo:</strong> $nombre</p>
-            <p><strong>Correo electrónico:</strong> $correo</p>
+            <p><strong>Correo electrónico:</strong> $correoHtml</p>
             <p><strong>Teléfono / WhatsApp:</strong> $telefono</p>
             <p><strong>Empresa:</strong> " . (!empty($empresa) ? $empresa : "No especificada") . "</p>
             <hr style='border: none; border-top: 1px solid #eee; margin: 20px 0;'>
@@ -121,8 +125,6 @@ $headers .= "X-Mailer: PHP/" . phpversion();
 // Enviar el correo
 // ---------------------------------------------------------
 $enviado = mail($correoDestino, $asunto, $cuerpoHtml, $headers);
-
-header("Content-Type: application/json");
 
 if ($enviado) {
     echo json_encode([
