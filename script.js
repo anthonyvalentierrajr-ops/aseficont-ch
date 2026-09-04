@@ -217,28 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.mb-video-card').forEach(card => {
         const playButton = card.querySelector('.mb-video-play');
-        const thumbnail = card.querySelector('.mb-video-thumb');
+        const video = card.querySelector('.mb-video-player');
+        const cover = card.querySelector('.mb-video-cover');
 
-        playButton?.addEventListener('click', () => {
-            const video = document.createElement('video');
-            video.className = 'mb-video-player';
-            video.controls = true;
-            video.setAttribute('controlsList', 'nodownload');
-            video.playsInline = true;
-            video.setAttribute('playsinline', '');
-            video.preload = 'metadata';
-            video.poster = thumbnail.querySelector('img').src;
-            video.setAttribute('aria-label', card.querySelector('h3').textContent);
-
-            const source = document.createElement('source');
-            source.src = card.dataset.video;
-            source.type = 'video/mp4';
-            video.appendChild(source);
-            thumbnail.replaceChildren(video);
-            video.play().catch(() => {
-                video.controls = true;
-            });
-            video.focus();
+        playButton?.addEventListener('click', event => {
+            event.preventDefault();
+            cover?.setAttribute('hidden', '');
+            video?.removeAttribute('hidden');
+            video?.play().catch(() => {});
         });
     });
 
