@@ -224,7 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
             video.className = 'mb-video-player';
             video.controls = true;
             video.setAttribute('controlsList', 'nodownload');
-            video.autoplay = true;
+            video.playsInline = true;
+            video.setAttribute('playsinline', '');
             video.preload = 'metadata';
             video.poster = thumbnail.querySelector('img').src;
             video.setAttribute('aria-label', card.querySelector('h3').textContent);
@@ -234,6 +235,9 @@ document.addEventListener('DOMContentLoaded', () => {
             source.type = 'video/mp4';
             video.appendChild(source);
             thumbnail.replaceChildren(video);
+            video.play().catch(() => {
+                video.controls = true;
+            });
             video.focus();
         });
     });
